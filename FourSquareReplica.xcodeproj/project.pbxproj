@@ -275,7 +275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 27KQ4G2M79;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,7 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 27KQ4G2M79;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

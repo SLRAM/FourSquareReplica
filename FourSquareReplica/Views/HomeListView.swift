@@ -9,13 +9,39 @@
 import UIKit
 
 class HomeListView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    
+    lazy var myTableView: UITableView = {
+        let tv = UITableView()
+        tv.register(HomeListTableViewCell.self, forCellReuseIdentifier: "HomeListTableViewCell")
+        return tv
+    }()
+    
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
+        
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    private func commonInit() {
+        backgroundColor = .white
+        setupTableView()
+    }
+    
+}
+extension HomeListView {
+    func setupTableView() {
+        addSubview(myTableView)
+        myTableView.translatesAutoresizingMaskIntoConstraints = false
+        myTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        myTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        myTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        myTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
 }

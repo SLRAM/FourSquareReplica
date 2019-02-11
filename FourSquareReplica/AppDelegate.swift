@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeNav = UINavigationController.init(rootViewController: homeVC)
         
         let listsVC = ListsViewController()
+        let listNav = UINavigationController.init(rootViewController: listsVC)
         listsVC.title = "Lists"
         
         let tab = UITabBarController()

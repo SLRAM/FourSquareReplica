@@ -15,6 +15,7 @@ class ListsDetailTableViewCell: UITableViewCell {
         label.textColor = .black
         label.text = "name of place here"
         label.textAlignment = .left
+        label.backgroundColor = .gray
         return label
     }()
 

@@ -15,6 +15,7 @@ class ListsDetailView: UIView {
         label.text = "title will go here"
         label.textColor = .black
         label.textAlignment = .center
+        label.backgroundColor = .magenta
         return label
     }()
     
@@ -22,19 +23,20 @@ class ListsDetailView: UIView {
         let button = UIButton()
         button.setTitle("Add to Favorites", for: .normal)
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
+        button.backgroundColor = .red
         return button
     }()
     
     @objc private func addButtonPressed() {
-        
+        print("i am doing a thing")
     }
     
     lazy var favoritesTV: UITableView = {
         let tv = UITableView()
-        tv.dataSource = self
-        tv.delegate = self
+        tv.backgroundColor = .green
         return tv
     }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -42,7 +44,7 @@ class ListsDetailView: UIView {
         titleLabelSetup()
         addButtonSetup()
         favoritesTVSetup()
-        backgroundColor = .white
+        backgroundColor = .blue
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,7 +54,7 @@ class ListsDetailView: UIView {
     private func titleLabelSetup() {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
     }
@@ -61,29 +63,19 @@ class ListsDetailView: UIView {
         addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25).isActive = true
-        addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 15).isActive = true 
+        addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
     }
     
     private func favoritesTVSetup() {
         addSubview(favoritesTV)
         favoritesTV.translatesAutoresizingMaskIntoConstraints = false
-        favoritesTV.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 15).isActive = true
-        favoritesTV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
-        favoritesTV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
+//        favoritesTV.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 15).isActive = true
+//        favoritesTV.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+//        favoritesTV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        favoritesTV.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        favoritesTV.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        favoritesTV.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        favoritesTV.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 }
 
-extension ListsDetailView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = favoritesTV.dequeueReusableCell(withIdentifier: "ListTVCell", for: indexPath) as? ListsDetailTableViewCell else { return UITableViewCell()}
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-}

@@ -41,4 +41,5 @@ class HomeListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     
+    }
 }

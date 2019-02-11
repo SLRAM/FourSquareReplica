@@ -7,17 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9410A220E35CC00E92242 /* PrivateInfo.swift */; };
 		9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D361220DECD300B7E11A /* AppDelegate.swift */; };
 		9703D369220DECD700B7E11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9703D368220DECD700B7E11A /* Assets.xcassets */; };
 		9703D36C220DECD700B7E11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9703D36A220DECD700B7E11A /* LaunchScreen.storyboard */; };
+		9703D378220E167000B7E11A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D377220E167000B7E11A /* HomeViewController.swift */; };
+		9703D37A220E16B600B7E11A /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D379220E16B600B7E11A /* ListsViewController.swift */; };
+		9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D37D220E19BA00B7E11A /* ListsView.swift */; };
+		9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D37F220E1A2900B7E11A /* HomeListView.swift */; };
+		9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D381220E1A4000B7E11A /* HomeMapView.swift */; };
+		9703D389220E1AFE00B7E11A /* HomeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D388220E1AFE00B7E11A /* HomeListTableViewCell.swift */; };
+		9703D38B220E1B2C00B7E11A /* ListsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D38A220E1B2C00B7E11A /* ListsCollectionViewCell.swift */; };
+		9703D38D220E1B8100B7E11A /* ListsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */; };
+		9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D38E220E1BA200B7E11A /* ListsDetailView.swift */; };
+		9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D390220E1BBA00B7E11A /* ListsDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48E9410A220E35CC00E92242 /* PrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfo.swift; sourceTree = "<group>"; };
 		9703D35E220DECD300B7E11A /* FourSquareReplica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquareReplica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9703D361220DECD300B7E11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9703D368220DECD700B7E11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9703D36B220DECD700B7E11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9703D36D220DECD700B7E11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9703D377220E167000B7E11A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9703D379220E16B600B7E11A /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		9703D37D220E19BA00B7E11A /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
+		9703D37F220E1A2900B7E11A /* HomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListView.swift; sourceTree = "<group>"; };
+		9703D381220E1A4000B7E11A /* HomeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapView.swift; sourceTree = "<group>"; };
+		9703D388220E1AFE00B7E11A /* HomeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListTableViewCell.swift; sourceTree = "<group>"; };
+		9703D38A220E1B2C00B7E11A /* ListsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCollectionViewCell.swift; sourceTree = "<group>"; };
+		9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsDetailViewController.swift; sourceTree = "<group>"; };
+		9703D38E220E1BA200B7E11A /* ListsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsDetailView.swift; sourceTree = "<group>"; };
+		9703D390220E1BBA00B7E11A /* ListsDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +72,47 @@
 		9703D360220DECD300B7E11A /* FourSquareReplica */ = {
 			isa = PBXGroup;
 			children = (
+				9703D385220E1A8700B7E11A /* Cells */,
+				9703D384220E1A7E00B7E11A /* Views */,
+				9703D383220E1A7300B7E11A /* View Controllers */,
 				9703D361220DECD300B7E11A /* AppDelegate.swift */,
+				48E9410A220E35CC00E92242 /* PrivateInfo.swift */,
 				9703D368220DECD700B7E11A /* Assets.xcassets */,
 				9703D36A220DECD700B7E11A /* LaunchScreen.storyboard */,
 				9703D36D220DECD700B7E11A /* Info.plist */,
 			);
 			path = FourSquareReplica;
+			sourceTree = "<group>";
+		};
+		9703D383220E1A7300B7E11A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9703D377220E167000B7E11A /* HomeViewController.swift */,
+				9703D379220E16B600B7E11A /* ListsViewController.swift */,
+				9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9703D384220E1A7E00B7E11A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9703D37F220E1A2900B7E11A /* HomeListView.swift */,
+				9703D381220E1A4000B7E11A /* HomeMapView.swift */,
+				9703D37D220E19BA00B7E11A /* ListsView.swift */,
+				9703D38E220E1BA200B7E11A /* ListsDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9703D385220E1A8700B7E11A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9703D388220E1AFE00B7E11A /* HomeListTableViewCell.swift */,
+				9703D38A220E1B2C00B7E11A /* ListsCollectionViewCell.swift */,
+				9703D390220E1BBA00B7E11A /* ListsDetailTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +186,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
+				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
+				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
+				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
+				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,
+				9703D38D220E1B8100B7E11A /* ListsDetailViewController.swift in Sources */,
+				9703D389220E1AFE00B7E11A /* HomeListTableViewCell.swift in Sources */,
+				48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */,
+				9703D38B220E1B2C00B7E11A /* ListsCollectionViewCell.swift in Sources */,
+				9703D37A220E16B600B7E11A /* ListsViewController.swift in Sources */,
+				9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */,
+				9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +335,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 465ZSD32S3;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -285,8 +354,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 465ZSD32S3;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

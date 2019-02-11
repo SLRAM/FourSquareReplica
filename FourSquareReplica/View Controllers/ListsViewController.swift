@@ -25,8 +25,7 @@ extension ListsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        let dest =  ListsDetailViewController()
-       // navigationController?.pushViewController(dest, animated: true)
-       present(dest, animated: true, completion: nil)
+    navigationController?.pushViewController(dest, animated: true)
     }
 }
 

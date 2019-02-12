@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484A99D022136E1400C97CAA /* FourSquareModel.swift */; };
+		48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9410A220E35CC00E92242 /* PrivateInfo.swift */; };
 		9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D361220DECD300B7E11A /* AppDelegate.swift */; };
 		9703D369220DECD700B7E11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9703D368220DECD700B7E11A /* Assets.xcassets */; };
 		9703D36C220DECD700B7E11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9703D36A220DECD700B7E11A /* LaunchScreen.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		484A99D022136E1400C97CAA /* FourSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareModel.swift; sourceTree = "<group>"; };
+		48E9410A220E35CC00E92242 /* PrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfo.swift; sourceTree = "<group>"; };
 		9703D35E220DECD300B7E11A /* FourSquareReplica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquareReplica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9703D361220DECD300B7E11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9703D368220DECD700B7E11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,9 +57,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		484A99D222136E8000C97CAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				484A99D022136E1400C97CAA /* FourSquareModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9703D355220DECD300B7E11A = {
 			isa = PBXGroup;
 			children = (
+				484A99D222136E8000C97CAA /* Model */,
 				9703D394220E28A400B7E11A /* SecretKeys.swift */,
 				9703D360220DECD300B7E11A /* FourSquareReplica */,
 				9703D35F220DECD300B7E11A /* Products */,
@@ -77,6 +90,7 @@
 				9703D384220E1A7E00B7E11A /* Views */,
 				9703D383220E1A7300B7E11A /* View Controllers */,
 				9703D361220DECD300B7E11A /* AppDelegate.swift */,
+				48E9410A220E35CC00E92242 /* PrivateInfo.swift */,
 				9703D368220DECD700B7E11A /* Assets.xcassets */,
 				9703D36A220DECD700B7E11A /* LaunchScreen.storyboard */,
 				9703D36D220DECD700B7E11A /* Info.plist */,
@@ -189,10 +203,12 @@
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
 				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
+				484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */,
 				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,
 				9703D395220E28A400B7E11A /* SecretKeys.swift in Sources */,
 				9703D38D220E1B8100B7E11A /* ListsDetailViewController.swift in Sources */,
 				9703D389220E1AFE00B7E11A /* HomeListTableViewCell.swift in Sources */,
+				48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */,
 				9703D38B220E1B2C00B7E11A /* ListsCollectionViewCell.swift in Sources */,
 				9703D37A220E16B600B7E11A /* ListsViewController.swift in Sources */,
 				9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */,
@@ -335,9 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-
 				DEVELOPMENT_TEAM = 27KQ4G2M79;
-
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,9 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-        
 				DEVELOPMENT_TEAM = 27KQ4G2M79;
-
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

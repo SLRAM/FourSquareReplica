@@ -14,16 +14,20 @@ class ListsDetailView: UIView {
         let label = UILabel()
         label.text = "title will go here"
         label.textColor = .black
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
         label.textAlignment = .center
-        label.backgroundColor = .magenta
+        label.backgroundColor = .clear
         return label
     }()
     
     lazy var addButton:UIButton = {
         let button = UIButton()
-        button.setTitle("Add to Favorites", for: .normal)
+        button.setTitle("   Favorite   ", for: .normal)
         button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-        button.backgroundColor = .red
+        button.backgroundColor = #colorLiteral(red: 0.5408302546, green: 0.6452511549, blue: 0.9180483222, alpha: 1)
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
         return button
     }()
     
@@ -44,7 +48,7 @@ class ListsDetailView: UIView {
         titleLabelSetup()
         addButtonSetup()
         favoritesTVSetup()
-        backgroundColor = .blue
+        backgroundColor = #colorLiteral(red: 0.6793696284, green: 0.6994317174, blue: 0.9765403867, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,27 +59,24 @@ class ListsDetailView: UIView {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
     }
     
     private func addButtonSetup() {
         addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25).isActive = true
-        addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
+        addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+        addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
     }
     
     private func favoritesTVSetup() {
         addSubview(favoritesTV)
         favoritesTV.translatesAutoresizingMaskIntoConstraints = false
-//        favoritesTV.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 15).isActive = true
-//        favoritesTV.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-//        favoritesTV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        favoritesTV.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-        favoritesTV.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
-        favoritesTV.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        favoritesTV.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        favoritesTV.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        favoritesTV.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        favoritesTV.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        favoritesTV.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 8).isActive = true
     }
 }
 

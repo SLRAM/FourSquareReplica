@@ -24,6 +24,8 @@
 		9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D38E220E1BA200B7E11A /* ListsDetailView.swift */; };
 		9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D390220E1BBA00B7E11A /* ListsDetailTableViewCell.swift */; };
 		9703D395220E28A400B7E11A /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D394220E28A400B7E11A /* SecretKeys.swift */; };
+		974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA09C22137BD1006381DD /* HomeDetailViewController.swift */; };
+		974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA09E22137C1F006381DD /* HomeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		9703D38E220E1BA200B7E11A /* ListsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsDetailView.swift; sourceTree = "<group>"; };
 		9703D390220E1BBA00B7E11A /* ListsDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9703D394220E28A400B7E11A /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
+		974FA09C22137BD1006381DD /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		974FA09E22137C1F006381DD /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +82,8 @@
 		9703D355220DECD300B7E11A = {
 			isa = PBXGroup;
 			children = (
-				484A99D222136E8000C97CAA /* Model */,
 				9703D394220E28A400B7E11A /* SecretKeys.swift */,
+				484A99D222136E8000C97CAA /* Model */,
 				9703D360220DECD300B7E11A /* FourSquareReplica */,
 				9703D35F220DECD300B7E11A /* Products */,
 			);
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9703D377220E167000B7E11A /* HomeViewController.swift */,
+				974FA09C22137BD1006381DD /* HomeDetailViewController.swift */,
 				9703D379220E16B600B7E11A /* ListsViewController.swift */,
 				9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */,
 			);
@@ -124,6 +129,7 @@
 			children = (
 				9703D37F220E1A2900B7E11A /* HomeListView.swift */,
 				9703D381220E1A4000B7E11A /* HomeMapView.swift */,
+				974FA09E22137C1F006381DD /* HomeDetailView.swift */,
 				9703D37D220E19BA00B7E11A /* ListsView.swift */,
 				9703D38E220E1BA200B7E11A /* ListsDetailView.swift */,
 			);
@@ -210,11 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */,
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
 				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
 				484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */,
+				974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */,
 				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,
 				9703D395220E28A400B7E11A /* SecretKeys.swift in Sources */,
 				9703D38D220E1B8100B7E11A /* ListsDetailViewController.swift in Sources */,

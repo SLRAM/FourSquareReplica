@@ -82,8 +82,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = homeListView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
         //        cell.textLabel?.text = indexPath.row.description
-        cell.myLabel.text = indexPath.row.description
+//        cell.locationName.text = indexPath.row.description
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedCell = homeListView.myTableView.cellForRow(at: indexPath) as? HomeListTableViewCell else {return}
+
+        let detailVC = HomeDetailViewController()
+        //        detailVC
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     

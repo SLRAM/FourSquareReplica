@@ -14,6 +14,7 @@ class HomeListView: UIView {
     lazy var myTableView: UITableView = {
         let tv = UITableView()
         tv.register(HomeListTableViewCell.self, forCellReuseIdentifier: "HomeListTableViewCell")
+        tv.rowHeight = (UIScreen.main.bounds.width)/2
         return tv
     }()
     

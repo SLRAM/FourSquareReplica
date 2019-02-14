@@ -12,7 +12,6 @@ class HomeListTableViewCell: UITableViewCell {
     
     public lazy var cellImage: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "Placeholder"))
-//        iv.contentMode = .scaleToFill
         return iv
     }()
     

@@ -11,31 +11,14 @@ class HomeViewController: UIViewController {
     
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
-    //    lazy var homeMapView: UITextView = {
-    //        let textView = UITextView()
-    //        textView.textColor = .gray
-    //        textView.text = "MapView!"
-    //        textView.font = UIFont.boldSystemFont(ofSize: 25)
-    //        textView.textAlignment = .center
-    //
-    //        return textView
-    //    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSearchBar()
         mapListButton()
         setupHomeView()
-        // Do any additional setup after loading the view.
     }
-    //    func setConstraints() {
-    //        homeMapView.translatesAutoresizingMaskIntoConstraints = false
-    //        homeMapView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-    //        homeMapView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-    //        homeMapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-    //        homeMapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-    //        homeMapView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
-    //    }
+    
     
     
     func makeSearchBar() {

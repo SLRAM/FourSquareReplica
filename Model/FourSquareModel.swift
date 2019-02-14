@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 //When you guys get the chance check you indiviual postman to see if you think things should be added to the model or renamed etc.
 struct FourSquareModel: Codable {
     let response: ResponseCollection
@@ -29,6 +30,9 @@ struct LocationContainer: Codable {
     let city: String
     let state: String
     let country: String
+    public var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(lat, lng)
+    }
     
 }
 struct Categories: Codable {

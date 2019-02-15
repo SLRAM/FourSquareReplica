@@ -8,6 +8,6 @@ order of push/ pull to prevent conflicts
  5. wait for pull request to merge.
  6. git checkout qa
  7. git pull
- 8. git checkout ~your branch~
+ 8. git checkout <your branch>
  9. git merge qa
  10. DONE! so far this pattern has prevented merge conflicts

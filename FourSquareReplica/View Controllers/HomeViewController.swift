@@ -1,4 +1,3 @@
-
 //
 //  HomeViewController.swift
 //  FourSquareReplica
@@ -6,40 +5,22 @@
 //  Created by Stephanie Ramirez on 2/8/19.
 //  Copyright © 2019 Stephanie Ramirez. All rights reserved.
 //
-
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
-//    lazy var homeMapView: UITextView = {
-//        let textView = UITextView()
-//        textView.textColor = .gray
-//        textView.text = "MapView!"
-//        textView.font = UIFont.boldSystemFont(ofSize: 25)
-//        textView.textAlignment = .center
-//
-//        return textView
-//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSearchBar()
         mapListButton()
         setupHomeView()
-        // Do any additional setup after loading the view.
     }
-//    func setConstraints() {
-//        homeMapView.translatesAutoresizingMaskIntoConstraints = false
-//        homeMapView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-//        homeMapView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-//        homeMapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-//        homeMapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-//        homeMapView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
-//    }
     
-
+    
+    
     func makeSearchBar() {
         let searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -68,13 +49,13 @@ class HomeViewController: UIViewController {
             //quizView.myQuizCollectionView.reloadData()
         } else {
             self.view.addSubview(homeMapView)
-//            setConstraints()
+            //            setConstraints()
             homeMapView.reloadInputViews()
             //self.view.addSubview(emptyQuizView)
             //emptyQuizView.firstQuizTextView.reloadInputViews()
         }
     }
-
+    
 }
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,9 +65,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = homeListView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
         //        cell.textLabel?.text = indexPath.row.description
-        cell.myLabel.text = indexPath.row.description
-    
+//        cell.locationName.text = indexPath.row.description
+
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedCell = homeListView.myTableView.cellForRow(at: indexPath) as? HomeListTableViewCell else {return}
+
+        let detailVC = HomeDetailViewController()
+        //        detailVC
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     

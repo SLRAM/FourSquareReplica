@@ -20,10 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeNav = UINavigationController.init(rootViewController: homeVC)
         
         let listsVC = ListsViewController()
+        let listsNav = UINavigationController.init(rootViewController: listsVC)
         listsVC.title = "Lists"
         
         let tab = UITabBarController()
-        tab.viewControllers = [homeNav,listsVC]
+        tab.viewControllers = [homeNav,listsNav]
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = tab

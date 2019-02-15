@@ -73,8 +73,8 @@ class HomeDetailView: UIView {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-//        addButton.imageView?.layer.cornerRadius = addButton.bounds.width / 2.0
-//        addButton.imageView?.clipsToBounds = true
+        addButton.layer.cornerRadius = addButton.bounds.width / 2.0
+        addButton.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {

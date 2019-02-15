@@ -12,7 +12,7 @@ class ListsDetailView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "title will go here"
+        label.text = "folder name"
         label.textColor = .black
         label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
         label.textAlignment = .center
@@ -32,7 +32,7 @@ class ListsDetailView: UIView {
     }()
     
     @objc private func addButtonPressed() {
-        print("i am doing a thing")
+        print("this will segue to a search view")
     }
     
     lazy var favoritesTV: UITableView = {

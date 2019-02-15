@@ -85,6 +85,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         guard let cell = homeListView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
         //        cell.textLabel?.text = indexPath.row.description
         cell.myLabel.text = indexPath.row.description
+    
         return cell
     }
     

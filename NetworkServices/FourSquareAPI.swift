@@ -7,13 +7,18 @@
 //
 
 import Foundation
+import MapKit
 
 final class FourSquareAPI {
     
     private init() {}
-    static func searchFourSquare(completionHandler: @escaping (AppError?, [Venues]?) -> Void) {
-        
-        let endpointURLString = "https://api.foursquare.com/v2/venues/search?client_id=\(SecretKeys.clientID)&client_secret=\(SecretKeys.clientSecret)&v=20180323&limit=10&ll=40.7252,-73.9782&query="
+    static func searchFourSquare(userLocation: CLLocationCoordinate2D, near: String, query: String, completionHandler: @escaping (AppError?, [Venues]?) -> Void) {
+        //ll= if user allows us to use thier location info or near= if they deny/search by place
+        var userLocationAdded = ""
+        if !userLocation.latitude.description.isEmpty || !userLocation.longitude.description.isEmpty {
+            userLocationAdded = "ll=\(userLocation.latitude),\(userLocation.longitude)"
+        }
+        let endpointURLString = "https://api.foursquare.com/v2/venues/search?client_id=\(SecretKeys.clientID)&client_secret=\(SecretKeys.clientSecret)&v=20180323&limit=10&\(userLocationAdded)&near=\(near)&query=\(query)"
         
         NetworkHelper.shared.performDataTask(endpointURLString: endpointURLString) { (appError, data) in
             if let appError = appError {

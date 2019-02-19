@@ -10,7 +10,8 @@ import UIKit
 
 class HomeDetailViewController: UIViewController {
 
-    private let homeDetailView = HomeDetailView()
+    let homeDetailView = HomeDetailView()
+    var venue: Venues?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,10 @@ class HomeDetailViewController: UIViewController {
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.isTranslucent = true
 
+        homeDetailView.nameLabel.text = venue?.name
+        homeDetailView.addressLabel.text = venue?.location.address
+//        homeDetailView.hoursLabel.text =
+        homeDetailView.categoriesLabel.text = venue?.categories.first?.name
     }
     
 

@@ -119,11 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				9703D394220E28A400B7E11A /* SecretKeys.swift */,
-<<<<<<< HEAD
 				974FA0A82216295E006381DD /* NetworkServices */,
-=======
 				551C6B57221772F800C7239A /* DataPersistanceManager */,
->>>>>>> qa
 				484A99D222136E8000C97CAA /* Model */,
 				9703D360220DECD300B7E11A /* FourSquareReplica */,
 				9703D35F220DECD300B7E11A /* Products */,
@@ -276,12 +273,9 @@
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
-<<<<<<< HEAD
 				974FA104221C975A006381DD /* SearchBarView.swift in Sources */,
-=======
 				551C6B5D221773BA00C7239A /* FolderSetUpModel.swift in Sources */,
 				551C6B5B221773A900C7239A /* FolderSetUp.swift in Sources */,
->>>>>>> qa
 				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
 				551C6B61221774B100C7239A /* FoldercreationView.swift in Sources */,

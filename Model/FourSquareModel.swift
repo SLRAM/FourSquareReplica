@@ -17,6 +17,7 @@ struct ResponseCollection: Codable {
     let venues: [Venues]
 }
 struct Venues: Codable {
+    let id: String
     let name: String // name of the venue
     let location: LocationContainer
     let categories: [Categories]

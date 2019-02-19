@@ -6,19 +6,25 @@
 //  Copyright © 2019 Stephanie Ramirez. All rights reserved.
 //
 import UIKit
-
+import MapKit
 class HomeViewController: UIViewController {
-    
+    public let identifer = "marker"
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
-    
+    let initialLocation = CLLocation(latitude: 40.7301, longitude: -73.99246)
+    let regionRadius: CLLocationDistance = 1000
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSearchBar()
         mapListButton()
         setupHomeView()
+        centerOnMap(location: initialLocation)
+        homeMapView.mapView.delegate = self
     }
-    
+    func centerOnMap(location: CLLocation){
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        homeMapView.mapView.setRegion(coordinateRegion, animated: true)
+    }
     
     
     func makeSearchBar() {
@@ -77,5 +83,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
+    
+}
+extension HomeViewController: MKMapViewDelegate{
+    //mapView(_:viewFor:) gets called for every annotation you add to the map (just like tableView(_:cellForRowAt:) when working with table views), to return the view for each annotation.
+    //step 1
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        
+//    }
+    //step 2 create a guard for the annotations for the model TODO
+    
+    //step 3:  To make markers appear, you create each view as an MKMarkerAnnotationView.
     
 }

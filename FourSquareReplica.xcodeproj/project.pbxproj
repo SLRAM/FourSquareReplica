@@ -26,6 +26,10 @@
 		9703D395220E28A400B7E11A /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D394220E28A400B7E11A /* SecretKeys.swift */; };
 		974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA09C22137BD1006381DD /* HomeDetailViewController.swift */; };
 		974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA09E22137C1F006381DD /* HomeDetailView.swift */; };
+		C6159609221C949D00459917 /* FavoritesSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159608221C949D00459917 /* FavoritesSetUp.swift */; };
+		C615960B221C978A00459917 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960A221C978A00459917 /* favoritesModel.swift */; };
+		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
+		C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960E221C992100459917 /* FavoritesSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		9703D394220E28A400B7E11A /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		974FA09C22137BD1006381DD /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		974FA09E22137C1F006381DD /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
+		C6159608221C949D00459917 /* FavoritesSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSetUp.swift; sourceTree = "<group>"; };
+		C615960A221C978A00459917 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
+		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
+		C615960E221C992100459917 /* FavoritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,8 @@
 		484A99D222136E8000C97CAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6159608221C949D00459917 /* FavoritesSetUp.swift */,
+				C615960A221C978A00459917 /* favoritesModel.swift */,
 				484A99D022136E1400C97CAA /* FourSquareModel.swift */,
 			);
 			path = Model;
@@ -117,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				9703D377220E167000B7E11A /* HomeViewController.swift */,
+				C615960C221C98EF00459917 /* FavoritesSearchVC.swift */,
 				974FA09C22137BD1006381DD /* HomeDetailViewController.swift */,
 				9703D379220E16B600B7E11A /* ListsViewController.swift */,
 				9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */,
@@ -132,6 +143,7 @@
 				974FA09E22137C1F006381DD /* HomeDetailView.swift */,
 				9703D37D220E19BA00B7E11A /* ListsView.swift */,
 				9703D38E220E1BA200B7E11A /* ListsDetailView.swift */,
+				C615960E221C992100459917 /* FavoritesSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,11 +228,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */,
+				C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */,
 				974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */,
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
 				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
+				C6159609221C949D00459917 /* FavoritesSetUp.swift in Sources */,
 				484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */,
 				974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */,
 				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,
@@ -231,6 +246,7 @@
 				48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */,
 				9703D38B220E1B2C00B7E11A /* ListsCollectionViewCell.swift in Sources */,
 				9703D37A220E16B600B7E11A /* ListsViewController.swift in Sources */,
+				C615960B221C978A00459917 /* favoritesModel.swift in Sources */,
 				9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */,
 				9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */,
 			);

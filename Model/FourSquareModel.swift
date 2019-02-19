@@ -17,6 +17,7 @@ struct ResponseCollection: Codable {
     let venues: [Venues]
 }
 struct Venues: Codable {
+    let id: String
     let name: String // name of the venue
     let location: LocationContainer
     let categories: [Categories]
@@ -26,7 +27,7 @@ struct LocationContainer: Codable {
     let lat: Double
     let lng: Double
     let distance: Int
-    let postalCode: Int
+    let postalCode: String
     let city: String
     let state: String
     let country: String

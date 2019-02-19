@@ -10,6 +10,11 @@
 		484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484A99D022136E1400C97CAA /* FourSquareModel.swift */; };
 		486D5CA822138958005ABFF0 /* FourSquareApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CA722138958005ABFF0 /* FourSquareApiClient.swift */; };
 		48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9410A220E35CC00E92242 /* PrivateInfo.swift */; };
+		551C6B592217737F00C7239A /* DataPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B582217737F00C7239A /* DataPersistance.swift */; };
+		551C6B5B221773A900C7239A /* FolderSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B5A221773A900C7239A /* FolderSetUp.swift */; };
+		551C6B5D221773BA00C7239A /* FolderSetUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B5C221773BA00C7239A /* FolderSetUpModel.swift */; };
+		551C6B5F2217745F00C7239A /* FolderCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B5E2217745E00C7239A /* FolderCreationViewController.swift */; };
+		551C6B61221774B100C7239A /* FoldercreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B60221774B100C7239A /* FoldercreationView.swift */; };
 		9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703D361220DECD300B7E11A /* AppDelegate.swift */; };
 		9703D369220DECD700B7E11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9703D368220DECD700B7E11A /* Assets.xcassets */; };
 		9703D36C220DECD700B7E11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9703D36A220DECD700B7E11A /* LaunchScreen.storyboard */; };
@@ -39,6 +44,11 @@
 		484A99D022136E1400C97CAA /* FourSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareModel.swift; sourceTree = "<group>"; };
 		486D5CA722138958005ABFF0 /* FourSquareApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareApiClient.swift; sourceTree = "<group>"; };
 		48E9410A220E35CC00E92242 /* PrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfo.swift; sourceTree = "<group>"; };
+		551C6B582217737F00C7239A /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
+		551C6B5A221773A900C7239A /* FolderSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSetUp.swift; sourceTree = "<group>"; };
+		551C6B5C221773BA00C7239A /* FolderSetUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSetUpModel.swift; sourceTree = "<group>"; };
+		551C6B5E2217745E00C7239A /* FolderCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCreationViewController.swift; sourceTree = "<group>"; };
+		551C6B60221774B100C7239A /* FoldercreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldercreationView.swift; sourceTree = "<group>"; };
 		9703D35E220DECD300B7E11A /* FourSquareReplica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquareReplica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9703D361220DECD300B7E11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9703D368220DECD700B7E11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,11 +104,26 @@
 			path = NetworkServices;
 			sourceTree = "<group>";
 		};
+		551C6B57221772F800C7239A /* DataPersistanceManager */ = {
+			isa = PBXGroup;
+			children = (
+				551C6B582217737F00C7239A /* DataPersistance.swift */,
+				551C6B5A221773A900C7239A /* FolderSetUp.swift */,
+				551C6B5C221773BA00C7239A /* FolderSetUpModel.swift */,
+			);
+			name = DataPersistanceManager;
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9703D355220DECD300B7E11A = {
 			isa = PBXGroup;
 			children = (
 				9703D394220E28A400B7E11A /* SecretKeys.swift */,
+<<<<<<< HEAD
 				974FA0A82216295E006381DD /* NetworkServices */,
+=======
+				551C6B57221772F800C7239A /* DataPersistanceManager */,
+>>>>>>> qa
 				484A99D222136E8000C97CAA /* Model */,
 				9703D360220DECD300B7E11A /* FourSquareReplica */,
 				9703D35F220DECD300B7E11A /* Products */,
@@ -133,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				9703D377220E167000B7E11A /* HomeViewController.swift */,
+				551C6B5E2217745E00C7239A /* FolderCreationViewController.swift */,
 				974FA09C22137BD1006381DD /* HomeDetailViewController.swift */,
 				9703D379220E16B600B7E11A /* ListsViewController.swift */,
 				9703D38C220E1B8100B7E11A /* ListsDetailViewController.swift */,
@@ -144,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				9703D37F220E1A2900B7E11A /* HomeListView.swift */,
+				551C6B60221774B100C7239A /* FoldercreationView.swift */,
 				9703D381220E1A4000B7E11A /* HomeMapView.swift */,
 				974FA103221C975A006381DD /* SearchBarView.swift */,
 				974FA09E22137C1F006381DD /* HomeDetailView.swift */,
@@ -249,9 +276,15 @@
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
+<<<<<<< HEAD
 				974FA104221C975A006381DD /* SearchBarView.swift in Sources */,
+=======
+				551C6B5D221773BA00C7239A /* FolderSetUpModel.swift in Sources */,
+				551C6B5B221773A900C7239A /* FolderSetUp.swift in Sources */,
+>>>>>>> qa
 				9703D380220E1A2900B7E11A /* HomeListView.swift in Sources */,
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
+				551C6B61221774B100C7239A /* FoldercreationView.swift in Sources */,
 				484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */,
 				974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */,
 				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,
@@ -260,6 +293,7 @@
 				9703D38D220E1B8100B7E11A /* ListsDetailViewController.swift in Sources */,
 				974FA0E2221BC1B1006381DD /* ImageModel.swift in Sources */,
 				486D5CA822138958005ABFF0 /* FourSquareApiClient.swift in Sources */,
+				551C6B592217737F00C7239A /* DataPersistance.swift in Sources */,
 				9703D389220E1AFE00B7E11A /* HomeListTableViewCell.swift in Sources */,
 				974FA0AE22163057006381DD /* NetworkHelper.swift in Sources */,
 				974FA0AC221629EA006381DD /* ImageHelper.swift in Sources */,
@@ -269,6 +303,7 @@
 				9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */,
 				974FA0AA221629B9006381DD /* appError.swift in Sources */,
 				9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */,
+				551C6B5F2217745F00C7239A /* FolderCreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,10 +22,10 @@ class ListsViewController: UIViewController {
 
 }
 extension ListsViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let dest =  ListsDetailViewController()
-    navigationController?.pushViewController(dest, animated: true)
+        let vc = FolderCreationViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
 }
 

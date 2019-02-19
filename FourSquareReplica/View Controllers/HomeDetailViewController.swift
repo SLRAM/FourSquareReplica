@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 class HomeDetailViewController: UIViewController {
 
-    private let homeDetailView = HomeDetailView()
+    let homeDetailView = HomeDetailView()
+    var venue: Venues?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,10 @@ class HomeDetailViewController: UIViewController {
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.isTranslucent = true
 
+        homeDetailView.nameLabel.text = venue?.name
+        homeDetailView.addressLabel.text = venue?.location.address
+//        homeDetailView.hoursLabel.text =
+        homeDetailView.categoriesLabel.text = venue?.categories.first?.name
     }
     
 
@@ -29,10 +35,27 @@ class HomeDetailViewController: UIViewController {
 }
 extension HomeDetailViewController: HomeDetailViewDelegate {
     func addToLists() {
-        let alert = UIAlertController(title: "This location has been added to your list!", message: nil, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let optionMenu = UIAlertController(title: nil, message: "Options:", preferredStyle: .actionSheet)
+        let  tipAction = UIAlertAction(title: "Add A Tip", style: .default, handler: { (action) -> Void in
+            
+        })
+        let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
+      
+        })
+        let directionsAction = UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in
+            guard let venueLat = self.venue?.location.lat,
+                let venueLong = self.venue?.location.lng else {return}
+            let coordinate = CLLocationCoordinate2DMake(venueLat,venueLong)
+            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+            mapItem.name = "Target location"
+            mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        optionMenu.addAction(tipAction)
+        optionMenu.addAction(addAction)
+        optionMenu.addAction(directionsAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
     }
-    
     
 }

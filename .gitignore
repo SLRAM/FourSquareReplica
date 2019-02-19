@@ -3,6 +3,9 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 FourSquareReplica/SecretKeys.swift
+FourSquareReplica/.DS_Store
+FourSquareReplica/Assets.xcassets/.DS_Store
+
 
 ## Build generated
 build/
@@ -69,4 +72,6 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+
 .DS_Store
+

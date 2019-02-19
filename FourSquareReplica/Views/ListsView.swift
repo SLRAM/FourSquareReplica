@@ -9,7 +9,7 @@
 import UIKit
 
 class ListsView: UIView {
-var counter = 0
+//var counter = 0
     lazy var folderCollectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize.init(width: 300, height: 340)
@@ -23,9 +23,7 @@ var counter = 0
     lazy var createbutton: UIButton = {
         let button = UIButton()
         button.setTitle("Create a New Folder", for: .normal)
-        button.addTarget(self, action: #selector(CreateFolderCells), for: .touchUpInside)
         button.backgroundColor = .blue
-        button.tag = counter
         return button
     }()
     
@@ -39,23 +37,6 @@ var counter = 0
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    @objc func CreateFolderCells() {
-        if createbutton.isTouchInside {
-        createbutton.showsTouchWhenHighlighted = true
-        createbutton.tag += 1
-        counter += createbutton.tag 
-        folderCollectionView.reloadData()
-        print("I Work")
-        } else {
-        print("something")
-        }
-    
-    
-    }
-    
     
     func constraints() {
         addSubview(createbutton)

@@ -54,9 +54,6 @@ class HomeDetailView: UIView {
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(addedPressed), for: .touchUpInside)
-//        button.imageView?.layer.cornerRadius = button.bounds.width / 2.0
-//        button.imageView?.clipsToBounds = true
-//        (title: "Favorite", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addedPressed))
         return button
     }()
     
@@ -118,7 +115,6 @@ extension HomeDetailView {
         addressLabel.topAnchor.constraint(equalTo: detailImageView.bottomAnchor).isActive = true
         addressLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
         addressLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
-//        addressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     func detailHoursLabel() {
@@ -127,7 +123,6 @@ extension HomeDetailView {
         hoursLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor).isActive = true
         hoursLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
         hoursLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
-        //        addressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         hoursLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     func detailCategoryLabel() {
@@ -136,7 +131,6 @@ extension HomeDetailView {
         categoriesLabel.topAnchor.constraint(equalTo: hoursLabel.bottomAnchor).isActive = true
         categoriesLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
         categoriesLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
-        //        addressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         categoriesLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     func detailAddButton() {

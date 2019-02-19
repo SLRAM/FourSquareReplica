@@ -31,7 +31,7 @@ class HomeListView: UIView {
         commonInit()
     }
     private func commonInit() {
-        backgroundColor = .white
+//        backgroundColor = .white
         setupTableView()
     }
     
@@ -40,9 +40,10 @@ extension HomeListView {
     func setupTableView() {
         addSubview(myTableView)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
-        myTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+//        myTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         myTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         myTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         myTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        myTableView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.95).isActive = true
     }
 }

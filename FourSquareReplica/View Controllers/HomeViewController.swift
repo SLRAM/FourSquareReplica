@@ -12,9 +12,9 @@ class HomeViewController: UIViewController {
     
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
+    private let searchbarView = SearchBarView()
     private var venues = [Venues]()
     let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
-    
     
     private func getVenues(near: String, query: String) {
         FourSquareAPI.searchFourSquare(userLocation: testingCoordinate, near: near, query: query) { (appError, venues) in
@@ -31,7 +31,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeSearchBar()
+        
+//        makeSearchBar()
         mapListButton()
         setupHomeView()
         getVenues(near: "", query: "Sushi")
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController {
         
     }
     func setupHomeView() {
+        view.addSubview(searchbarView)
         if navigationItem.rightBarButtonItem?.title == "List" {
             self.view.addSubview(homeListView)
             homeListView.myTableView.dataSource = self
@@ -83,7 +85,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let venueToSet = venues[indexPath.row]
         cell.locationName.text = venueToSet.name
         cell.locationCategory.text = venueToSet.categories.first?.name
-        cell.locationDistance.text = venueToSet.location.distance.description
+        cell.locationDistance.text = "\(venueToSet.location.distance.description) meters away"
 //        cell.locationDescription.text =
         ImageAPIClient.getImages(venueID: venueToSet.id) { (appError, imageInfo) in
             if let appError = appError {
@@ -127,9 +129,11 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         guard let searchText = searchBar.text else { return }
+        if searchText.lowercased().contains("near") {
+            print("contains near")
+        }
         print(searchText)
         getVenues(near: "", query: searchText)
-//        getVenues(keyword: searchText)
-//        UserDefaults.standard.set(searchText, forKey: UserDefaultsKey.searchTerm)
+        //userdefaults here
     }
 }

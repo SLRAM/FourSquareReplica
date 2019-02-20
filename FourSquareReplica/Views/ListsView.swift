@@ -12,24 +12,31 @@ class ListsView: UIView {
 //var counter = 0
     lazy var folderCollectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 300, height: 340)
+        layout.itemSize = CGSize.init(width: 80, height: 80)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         let Collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        Collection.backgroundColor = .red
+        Collection.backgroundColor = .white
         //layout.scrollDirection = .horizontal
         return Collection
     }()
     
     lazy var createbutton: UIButton = {
         let button = UIButton()
-        button.setTitle("Create a New Folder", for: .normal)
+        button.setTitle("+", for: .normal)
         button.backgroundColor = .blue
+        return button
+    }()
+    
+    lazy var cancelButton: UIButton = {
+    let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        button.backgroundColor = .red
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame:UIScreen.main.bounds)
-        self.backgroundColor = .green
+        self.backgroundColor = .white
         constraints()
         folderCollectionView.register(ListsCollectionViewCell.self, forCellWithReuseIdentifier: "ListCell")
     }
@@ -40,6 +47,7 @@ class ListsView: UIView {
     
     func constraints() {
         addSubview(createbutton)
+        addSubview(cancelButton)
         createbutton.translatesAutoresizingMaskIntoConstraints = false
         createbutton.topAnchor.constraint(equalTo: topAnchor, constant: 190).isActive = true
         createbutton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
@@ -48,10 +56,10 @@ class ListsView: UIView {
         
         addSubview(folderCollectionView)
         folderCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        folderCollectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-        folderCollectionView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95).isActive = true
-        folderCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        folderCollectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4).isActive = true
+        folderCollectionView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        //folderCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         folderCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        folderCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        folderCollectionView.centerYAnchor.constraint(equalToSystemSpacingBelow: centerYAnchor, multiplier: 0.4).isActive = true
     }
 }

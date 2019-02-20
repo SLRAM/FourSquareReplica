@@ -16,7 +16,7 @@ class HomeDetailView: UIView {
 
     public lazy var detailImageView: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "Placeholder"))
-        iv.contentMode = .scaleToFill
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
     lazy var nameLabel: UILabel = {

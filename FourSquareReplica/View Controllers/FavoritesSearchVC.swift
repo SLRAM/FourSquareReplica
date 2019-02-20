@@ -10,8 +10,11 @@ import UIKit
 
 class FavoritesSearchVC: UIViewController {
 
+    var favoritesSearch = FavoritesSearchView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(favoritesSearch)
     }
     
 }

@@ -80,3 +80,5 @@ class ListsDetailTableViewCell: UITableViewCell {
         favoritesImage.widthAnchor.constraint(equalTo: favoritesImage.heightAnchor).isActive = true
     }
 }
+
+

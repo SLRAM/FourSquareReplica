@@ -10,6 +10,7 @@ import Foundation
 
 struct folderSetUp: Codable {
     let title: String
+    let description: String
     let createdAt: String
     public var dateFormattedString: String {
         let isoDateFormatter = ISO8601DateFormatter()

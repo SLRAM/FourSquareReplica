@@ -8,16 +8,6 @@
 
 import Foundation
 
-final class DataPersistenceManager {
-    static func documentsDirectory() -> URL {
-        return
-            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    }
-    static func filepathToDocumentDirectory(filename: String) -> URL {
-        return documentsDirectory().appendingPathComponent(filename)
-    }
-}
-
 final class FavoritesModel {
     private static let favoriteName = "FavoritesCell.plist"
     private static var items = [FavoritesSetUp]()

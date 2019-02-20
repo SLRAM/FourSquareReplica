@@ -7,18 +7,13 @@
 //
 import UIKit
 import MapKit
-<<<<<<< HEAD
-=======
 
->>>>>>> qa
 class HomeViewController: UIViewController {
     public let identifer = "marker"
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
-<<<<<<< HEAD
-    let initialLocation = CLLocation(latitude: 40.7301, longitude: -73.99246)
-    let regionRadius: CLLocationDistance = 1000
-=======
+
+   
     private let searchbarView = SearchBarView()
     private var venues = [Venues]()
     let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
@@ -31,37 +26,35 @@ class HomeViewController: UIViewController {
                 self.venues = venues
                 DispatchQueue.main.async {
                     self.homeListView.myTableView.reloadData()
+                    self.homeMapView.mapView.reloadInputViews()
                 }
             }
         }
     }
     
->>>>>>> qa
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        makeSearchBar()
         mapListButton()
         setupHomeView()
-<<<<<<< HEAD
-        centerOnMap(location: initialLocation)
+//        centerOnMap(location: initialLocation)
         homeMapView.mapView.delegate = self
-    }
-    func centerOnMap(location: CLLocation){
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        homeMapView.mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    
-=======
         getVenues(near: "", query: "Sushi")
+       // setupAnnotations()
     }
->>>>>>> qa
-    func makeSearchBar() {
-        let searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
-        searchBar.delegate = self
+    func setupAnnotations(){
+        for venue in venues {
+            let regionRadius: CLLocationDistance = 9000
+            let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat!, longitude: venue.location.lng!)
+            let coordinateRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = venue.name
+            annotation.subtitle = venue.location.address
+            homeMapView.mapView.setRegion(coordinateRegion, animated: true)
+            homeMapView.mapView.addAnnotation(annotation)
+        }
     }
     func mapListButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "List", style: .plain, target: self, action: #selector(toggle))
@@ -87,6 +80,7 @@ class HomeViewController: UIViewController {
             //quizView.myQuizCollectionView.reloadData()
         } else {
             self.view.addSubview(homeMapView)
+            setupAnnotations()
             //            setConstraints()
             homeMapView.reloadInputViews()
             //self.view.addSubview(emptyQuizView)
@@ -138,24 +132,32 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         detailVC.venue = venue
         detailVC.homeDetailView.detailImageView.image = selectedCell.cellImage.image
         //        detailVC
-        
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     
 }
-<<<<<<< HEAD
 extension HomeViewController: MKMapViewDelegate{
-    //mapView(_:viewFor:) gets called for every annotation you add to the map (just like tableView(_:cellForRowAt:) when working with table views), to return the view for each annotation.
-    //step 1
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        
-//    }
-    //step 2 create a guard for the annotations for the model TODO
-    
-    //step 3:  To make markers appear, you create each view as an MKMarkerAnnotationView.
-    
-=======
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let destinationVC = HomeDetailViewController()
+     navigationController?.pushViewController(destinationVC, animated: true)
+    }
+}
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -168,5 +170,5 @@ extension HomeViewController: UISearchBarDelegate {
         getVenues(near: "", query: searchText)
         //userdefaults here
     }
->>>>>>> qa
 }
+

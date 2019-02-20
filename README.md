@@ -11,3 +11,4 @@ order of push/ pull to prevent conflicts
  8. git checkout **_your branch_**
  9. git merge qa
  10. DONE! so far this pattern has prevented merge conflicts
+

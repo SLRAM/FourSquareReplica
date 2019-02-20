@@ -24,6 +24,7 @@ class FavoritesSearchView: UIView {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         addToListsSetUp()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

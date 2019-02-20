@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 //When you guys get the chance check you indiviual postman to see if you think things should be added to the model or renamed etc.
 struct FourSquareModel: Codable {
-    let response: ResponseCollection
+    let response: ResponseCollection?
 }
 
 struct ResponseCollection: Codable {
@@ -23,16 +23,16 @@ struct Venues: Codable {
     let categories: [Categories]
 }
 struct LocationContainer: Codable {
-    let address: String
-    let lat: Double
-    let lng: Double
+    let address: String?
+    let lat: Double?
+    let lng: Double?
     let distance: Int
-    let postalCode: String
+//    let postalCode: String?
     let city: String
     let state: String
     let country: String
     public var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2DMake(lat, lng)
+        return CLLocationCoordinate2DMake(lat!, lng!)
     }
     
 }

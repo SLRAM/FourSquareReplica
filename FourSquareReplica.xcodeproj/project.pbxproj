@@ -38,6 +38,7 @@
 		974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA0DF221BC0F6006381DD /* ImageAPI.swift */; };
 		974FA0E2221BC1B1006381DD /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA0E1221BC1B1006381DD /* ImageModel.swift */; };
 		974FA104221C975A006381DD /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA103221C975A006381DD /* SearchBarView.swift */; };
+		9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26A221DB8FB0017C25C /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		974FA0DF221BC0F6006381DD /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		974FA0E1221BC1B1006381DD /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		974FA103221C975A006381DD /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9750E26A221DB8FB0017C25C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				9703D37F220E1A2900B7E11A /* HomeListView.swift */,
 				551C6B60221774B100C7239A /* FoldercreationView.swift */,
 				9703D381220E1A4000B7E11A /* HomeMapView.swift */,
+				9750E26A221DB8FB0017C25C /* HomeView.swift */,
 				974FA103221C975A006381DD /* SearchBarView.swift */,
 				974FA09E22137C1F006381DD /* HomeDetailView.swift */,
 				9703D37D220E19BA00B7E11A /* ListsView.swift */,
@@ -272,6 +275,7 @@
 				974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */,
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */,
+				9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
 				974FA104221C975A006381DD /* SearchBarView.swift in Sources */,
 				551C6B5D221773BA00C7239A /* FolderSetUpModel.swift in Sources */,
@@ -436,7 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27KQ4G2M79;
+				DEVELOPMENT_TEAM = FSUP887MQU;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,7 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27KQ4G2M79;
+				DEVELOPMENT_TEAM = FSUP887MQU;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

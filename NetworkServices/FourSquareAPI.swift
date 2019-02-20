@@ -27,9 +27,10 @@ final class FourSquareAPI {
             if let data = data {
                 do {
                     let fourSquareInfo = try JSONDecoder().decode(FourSquareModel.self, from: data)
-                    completionHandler(nil, fourSquareInfo.response.venues)
+                    completionHandler(nil, fourSquareInfo.response!.venues)
                 } catch {
                     completionHandler(AppError.jsonDecodingError(error), nil)
+                    print("1")
                 }
             }
         }

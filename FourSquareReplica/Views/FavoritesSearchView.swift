@@ -23,6 +23,8 @@ class FavoritesSearchView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
+        backgroundColor = .lightGray
+        addToListsCV.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
         addToListsSetUp()
         
     }

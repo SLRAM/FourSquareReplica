@@ -24,27 +24,31 @@ class HomeDetailView: UIView {
         label.textColor = .black
         label.backgroundColor = .clear
         label.text = "Location Name"
+        label.font = UIFont(name: "AvenirNext-Bold", size: 18)
         return label
     }()
     lazy var addressLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         label.text = "Location Address"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
     lazy var hoursLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.text = "Location Hours"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
     lazy var categoriesLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         label.text = "Location Categories"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
     
@@ -86,6 +90,11 @@ class HomeDetailView: UIView {
 }
 extension HomeDetailView {
     func setupDetailView() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
+        
         detailImage()
         detailNameLabel()
         detailAddressLabel()

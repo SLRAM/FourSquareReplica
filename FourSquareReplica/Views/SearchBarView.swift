@@ -7,8 +7,13 @@
 //
 
 import UIKit
+protocol SearchBarViewDelegate: AnyObject {
+    func userLocationButton()
+}
 
 class SearchBarView: UIView {
+    
+    weak var delegate: SearchBarViewDelegate?
     
     
     lazy var myView: UIView = {
@@ -19,10 +24,11 @@ class SearchBarView: UIView {
     lazy var queryTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "ex. pancakes"
-        tf.textColor = .gray
+        tf.textColor = .black
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.gray.cgColor
+        tf.textAlignment = .center
         return tf
     }()
     
@@ -38,14 +44,18 @@ class SearchBarView: UIView {
     }()
     @objc func nearMeButtonPressed() {
         print("near me pressed")
+        delegate?.userLocationButton()
+        
     }
     lazy var locationTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "ex. Miami"
-        tf.textColor = .gray
+        tf.textColor = .black
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.gray.cgColor
+        tf.textAlignment = .center
+
         return tf
     }()
     

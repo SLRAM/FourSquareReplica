@@ -7,8 +7,13 @@
 //
 import UIKit
 import MapKit
+import CoreLocation
 
 class HomeViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
+    
+    private let homeView = HomeView()
     public let identifer = "marker"
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
@@ -16,17 +21,24 @@ class HomeViewController: UIViewController {
    
     private let searchbarView = SearchBarView()
     private var venues = [Venues]()
-    let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
+//    let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
+    var query : String?
+    var locationString = String()
+    var statusRawValue = Int32()
+    var userLocation : CLLocationCoordinate2D?
+    var updatedUserLocation = CLLocationCoordinate2D()
     
-    private func getVenues(near: String, query: String) {
-        FourSquareAPI.searchFourSquare(userLocation: testingCoordinate, near: near, query: query) { (appError, venues) in
+    private func getVenues(userLocation: CLLocationCoordinate2D, near: String, query: String) {
+        FourSquareAPI.searchFourSquare(userLocation: userLocation, near: near, query: query) { (appError, venues) in
             if let appError = appError {
                 print("getVenue - \(appError)")
             } else if let venues = venues {
                 self.venues = venues
                 DispatchQueue.main.async {
-                    self.homeListView.myTableView.reloadData()
-                    self.homeMapView.mapView.reloadInputViews()
+                    self.homeView.myTableView.reloadData()
+                    self.homeView.mapView.reloadInputViews()
+                    dump(venues)
+
                 }
             }
         }
@@ -34,13 +46,29 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        makeSearchBar()
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            //we need to say how accurate the data should be
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            homeView.mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            homeView.mapView.showsUserLocation = true
+        }
         mapListButton()
-        setupHomeView()
+        if let userLocation = userLocation, let query = query {
+            getVenues(userLocation: userLocation, near: "", query: query)
+
+        } else {
+            //fix this case. use blank query and correct user location info
+            getVenues(userLocation: updatedUserLocation, near: "nyc", query: "Taco")
+
+        }
+        homeView.delegate = self
+        homeViewSetup()
 //        centerOnMap(location: initialLocation)
         homeMapView.mapView.delegate = self
-        getVenues(near: "", query: "Sushi")
        // setupAnnotations()
     }
     func setupAnnotations(){
@@ -56,36 +84,56 @@ class HomeViewController: UIViewController {
             homeMapView.mapView.addAnnotation(annotation)
         }
     }
+    
     func mapListButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "List", style: .plain, target: self, action: #selector(toggle))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Map", style: .plain, target: self, action: #selector(toggle))
     }
     @objc func toggle() {
         print("pressed toggle")
-        if navigationItem.rightBarButtonItem?.title == "List" {
-            navigationItem.rightBarButtonItem?.title = "Map"
+        if statusRawValue != 4 && (homeView.locationTextField.text?.isEmpty)! {
+            let alertController = UIAlertController(title: "Please provide a search location or allow this app access to your location to see this feature.", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) -> Void in
+                if let url = URL(string:UIApplication.openSettingsURLString) {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            })
+            alertController.addAction(okAction)
+            alertController.addAction(settingsAction)
+            present(alertController, animated: true)
         } else {
-            navigationItem.rightBarButtonItem?.title = "List"
+            if navigationItem.rightBarButtonItem?.title == "List" {
+                navigationItem.rightBarButtonItem?.title = "Map"
+            } else {
+                navigationItem.rightBarButtonItem?.title = "List"
+            }
+            homeViewSetup()
         }
-        setupHomeView()
-        
     }
-    func setupHomeView() {
-        view.addSubview(searchbarView)
-        if navigationItem.rightBarButtonItem?.title == "List" {
-            self.view.addSubview(homeListView)
-            homeListView.myTableView.dataSource = self
-            homeListView.myTableView.delegate = self
-            
-            //self.view.addSubview(quizView)
-            //quizView.myQuizCollectionView.reloadData()
+    func homeViewSetup() {
+        view.addSubview(homeView)
+        homeView.myTableView.delegate = self
+        homeView.myTableView.dataSource = self
+
+        if navigationItem.rightBarButtonItem?.title == "Map" {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                self.homeView.mapView.alpha = 0.0
+            })
         } else {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                self.homeView.mapView.alpha = 1.0
+            })
             self.view.addSubview(homeMapView)
             setupAnnotations()
-            //            setConstraints()
             homeMapView.reloadInputViews()
-            //self.view.addSubview(emptyQuizView)
-            //emptyQuizView.firstQuizTextView.reloadInputViews()
         }
+    }
+    func leaveMap() {
+        self.homeView.mapView.alpha = 0.0
+        navigationItem.rightBarButtonItem?.title == "List"
+        
     }
     
 }
@@ -95,9 +143,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = homeListView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
+        guard let cell = homeView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
         let venueToSet = venues[indexPath.row]
-        cell.locationName.text = venueToSet.name
+        cell.locationName.text = "\(indexPath.row + 1). \(venueToSet.name)"
         cell.locationCategory.text = venueToSet.categories.first?.name
         cell.locationDistance.text = "\(venueToSet.location.distance.description) meters away"
 //        cell.locationDescription.text =
@@ -120,22 +168,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
                 }
             }
         }
-        
-
-
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedCell = homeListView.myTableView.cellForRow(at: indexPath) as? HomeListTableViewCell else {return}
+        guard let selectedCell = homeView.myTableView.cellForRow(at: indexPath) as? HomeListTableViewCell else {return}
         let venue = venues[indexPath.row]
         let detailVC = HomeDetailViewController()
         detailVC.venue = venue
         detailVC.homeDetailView.detailImageView.image = selectedCell.cellImage.image
         //        detailVC
+//        UIView.animate(withDuration: 5.5, delay: 0.0, options: [], animations: {
+//        })
         navigationController?.pushViewController(detailVC, animated: true)
     }
-    
-    
 }
 extension HomeViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -159,16 +204,81 @@ extension HomeViewController: MKMapViewDelegate{
     }
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        guard let searchText = searchBar.text else { return }
-        if searchText.lowercased().contains("near") {
-            print("contains near")
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //make textfield show query term
+        if textField == homeView.queryTextField {
+            print("query: \(String(describing: textField.text))")
+            //guard for textfield stuff
+            query = textField.text ?? ""
         }
-        print(searchText)
-        getVenues(near: "", query: searchText)
-        //userdefaults here
+        if textField == homeView.locationTextField {
+            print("location: \(String(describing: textField.text))")
+            locationString = textField.text ?? ""
+        }
+        if let query = query,
+            let userLocation = userLocation {
+           getVenues(userLocation: userLocation, near: locationString, query: query)
+        }
+        return true
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func userLocationButton() {
+        if statusRawValue == 4 {
+            if homeView.nearMeButton.backgroundColor == #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)  {
+                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.4481958747, green: 0.5343003273, blue: 0.7696674466, alpha: 1)
+                print("highlighted")
+                homeView.locationTextField.text = "near me"
+                homeView.locationTextField.isEnabled = false
+            } else {
+                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)
+                homeView.locationTextField.isEnabled = true
+                homeView.locationTextField.text = ""
+                homeView.locationTextField.placeholder = "ex. Miami"
+                print("not highlighted")
+            }
+        } else {
+            let alertController = UIAlertController(title: "Please allow this app to access your user location in settings to enable this feature.", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) -> Void in
+                if let url = URL(string:UIApplication.openSettingsURLString) {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            })
+            alertController.addAction(okAction)
+            alertController.addAction(settingsAction)
+            present(alertController, animated: true)
+        }
+    }
+}
+extension HomeViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("user changed the authorization")
+        statusRawValue = status.rawValue
+        locationManager.startUpdatingLocation()
+        let currentLocation = homeView.mapView.userLocation
+        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        homeView.mapView.setRegion(myCurrentRegion, animated: true)
+        print(status.rawValue)
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("user has changed locations")
+        guard let currentLocation = locations.last else {return}
+        updatedUserLocation = currentLocation.coordinate
+        print("The user is in lat: \(currentLocation.coordinate.latitude) and long:\(currentLocation.coordinate.longitude)")
+        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        homeView.mapView.setRegion(myCurrentRegion, animated: true)
+//        getVenues(userLocation: updatedUserLocation, near: "", query: "Taco")
     }
 }
 

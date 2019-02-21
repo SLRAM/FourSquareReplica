@@ -15,16 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let homeVC = HomeViewController()
-        homeVC.title = "Home"
-        let homeNav = UINavigationController.init(rootViewController: homeVC)
+//        let homeVC = HomeViewController()
+//        homeVC.title = "Home"
+//        let homeNav = UINavigationController.init(rootViewController: homeVC)
+        
+        let logoVC = LogoViewController()
+        logoVC.title = "Home"
+        let logoNav = UINavigationController.init(rootViewController: logoVC)
         
         let listsVC = ListsViewController()
         let listsNav = UINavigationController.init(rootViewController: listsVC)
         listsVC.title = "Lists"
         
         let tab = UITabBarController()
-        tab.viewControllers = [homeNav,listsNav]
+        tab.viewControllers = [logoNav,listsNav]
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = tab

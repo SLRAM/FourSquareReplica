@@ -12,7 +12,7 @@ import Foundation
 
 final class ImageAPIClient {
     static func getImages(venueID: String, completionHandler: @escaping ((AppError?, String?) -> Void)) {
-        let URL = "https://api.foursquare.com/v2/venues/\(venueID)/photos?client_id=\(SecretKeys.clientID)&client_secret=\(SecretKeys.clientSecret)&v=220180323"
+        let URL = "https://api.foursquare.com/v2/venues/\(venueID)/photos?client_id=\(SecretKeys.clientID)&client_secret=\(SecretKeys.clientSecret)&v=220180323&limit=1"
         NetworkHelper.shared.performDataTask(endpointURLString: URL) { (appError, data) in
             if let error = appError {
                 completionHandler(error, nil)

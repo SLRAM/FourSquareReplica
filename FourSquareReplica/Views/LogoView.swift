@@ -213,7 +213,6 @@ extension LogoView {
         setupBreakfastButton()
         setupDinnerButton()
         setupNightlifeButton()
-
         setupCoffeeTeaButton()
         setupThingsButton()
     }

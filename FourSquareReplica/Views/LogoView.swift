@@ -29,7 +29,7 @@ class LogoView: UIView {
     
     public lazy var breakfastButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "1"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(breakfastPressed), for: .touchUpInside)
@@ -44,7 +44,7 @@ class LogoView: UIView {
     
     public lazy var lunchButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "2"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(lunchPressed), for: .touchUpInside)
@@ -59,7 +59,7 @@ class LogoView: UIView {
     
     public lazy var dinnerButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "3"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(dinnerPressed), for: .touchUpInside)
@@ -73,7 +73,7 @@ class LogoView: UIView {
     }
     public lazy var coffeeTeaButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "4"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(coffeeTeaPressed), for: .touchUpInside)
@@ -87,7 +87,7 @@ class LogoView: UIView {
     }
     public lazy var nightlifeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "5"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(nightlifePressed), for: .touchUpInside)
@@ -101,7 +101,7 @@ class LogoView: UIView {
     }
     public lazy var thingsButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "addIconFilled"), for: .normal)
+        button.setImage(UIImage(named: "6"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(thingsPressed), for: .touchUpInside)

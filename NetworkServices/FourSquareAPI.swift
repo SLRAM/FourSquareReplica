@@ -15,7 +15,7 @@ final class FourSquareAPI {
     static func searchFourSquare(userLocation: CLLocationCoordinate2D, near: String, query: String, completionHandler: @escaping (AppError?, [Venues]?) -> Void) {
         //ll= if user allows us to use thier location info or near= if they deny/search by place
         var userLocationAdded = ""
-        if !userLocation.latitude.description.isEmpty || !userLocation.longitude.description.isEmpty {
+        if userLocation.latitude != 0.0 || userLocation.longitude != 0.0 {
             userLocationAdded = "ll=\(userLocation.latitude),\(userLocation.longitude)"
         }
         let endpointURLString = "https://api.foursquare.com/v2/venues/search?client_id=\(SecretKeys.clientID)&client_secret=\(SecretKeys.clientSecret)&v=20180323&limit=10&\(userLocationAdded)&near=\(near)&query=\(query)"

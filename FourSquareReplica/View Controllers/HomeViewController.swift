@@ -15,13 +15,15 @@ class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
     private var venues = [Venues]()
-    let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
-    var query = String()
-    var location = String()
+//    let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
+    var query : String?
+    var locationString = String()
     var statusRawValue = Int32()
+    var userLocation : CLLocationCoordinate2D?
+    var updatedUserLocation = CLLocationCoordinate2D()
     
-    private func getVenues(near: String, query: String) {
-        FourSquareAPI.searchFourSquare(userLocation: testingCoordinate, near: near, query: query) { (appError, venues) in
+    private func getVenues(userLocation: CLLocationCoordinate2D, near: String, query: String) {
+        FourSquareAPI.searchFourSquare(userLocation: userLocation, near: near, query: query) { (appError, venues) in
             if let appError = appError {
                 print("getVenue - \(appError)")
             } else if let venues = venues {
@@ -47,7 +49,14 @@ class HomeViewController: UIViewController {
             homeView.mapView.showsUserLocation = true
         }
         mapListButton()
-        getVenues(near: "miami", query: "Taco")
+        if let userLocation = userLocation, let query = query {
+            getVenues(userLocation: userLocation, near: "", query: query)
+
+        } else {
+            //fix this case. use blank query and correct user location info
+            getVenues(userLocation: updatedUserLocation, near: "nyc", query: "Taco")
+
+        }
         homeView.delegate = self
         homeViewSetup()
     }
@@ -141,7 +150,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         detailVC.venue = venue
         detailVC.homeDetailView.detailImageView.image = selectedCell.cellImage.image
         //        detailVC
-        navigationController?.pushViewController(detailVC, animated: true)
+//        UIView.animate(withDuration: 5.5, delay: 0.0, options: [], animations: {
+//        })
+        self.navigationController?.pushViewController(detailVC, animated: true)
+
+        
     }
 }
 
@@ -153,6 +166,7 @@ extension HomeViewController: UITextFieldDelegate {
         return true
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //make textfield show query term
         if textField == homeView.queryTextField {
             print("query: \(String(describing: textField.text))")
             //guard for textfield stuff
@@ -160,10 +174,12 @@ extension HomeViewController: UITextFieldDelegate {
         }
         if textField == homeView.locationTextField {
             print("location: \(String(describing: textField.text))")
-            location = textField.text ?? ""
+            locationString = textField.text ?? ""
         }
-        getVenues(near: location, query: query)
-        
+        if let query = query,
+            let userLocation = userLocation {
+           getVenues(userLocation: userLocation, near: locationString, query: query)
+        }
         return true
     }
 }
@@ -201,26 +217,21 @@ extension HomeViewController: HomeViewDelegate {
 }
 extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        //this kicks off whenever authorization is turned on or off
         print("user changed the authorization")
         statusRawValue = status.rawValue
-        if statusRawValue != 4 && homeView.mapView.alpha == 1.0 {
-            leaveMap()
-        } else {
-            let currentLocation = homeView.mapView.userLocation
-            let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-            homeView.mapView.setRegion(myCurrentRegion, animated: true)
-        }
+        locationManager.startUpdatingLocation()
+        let currentLocation = homeView.mapView.userLocation
+        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        homeView.mapView.setRegion(myCurrentRegion, animated: true)
         print(status.rawValue)
-        
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //this kicks off whenever the user's location has noticeably changed
         print("user has changed locations")
         guard let currentLocation = locations.last else {return}
+        updatedUserLocation = currentLocation.coordinate
         print("The user is in lat: \(currentLocation.coordinate.latitude) and long:\(currentLocation.coordinate.longitude)")
         let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        
         homeView.mapView.setRegion(myCurrentRegion, animated: true)
+//        getVenues(userLocation: updatedUserLocation, near: "", query: "Taco")
     }
 }

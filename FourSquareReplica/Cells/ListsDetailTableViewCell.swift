@@ -13,7 +13,7 @@ class ListsDetailTableViewCell: UITableViewCell {
     lazy var favoritesNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 18)
         label.textAlignment = .left
         label.backgroundColor = .clear
         return label
@@ -25,6 +25,7 @@ class ListsDetailTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.backgroundColor = .clear
         label.text = "street address\ncity and state"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

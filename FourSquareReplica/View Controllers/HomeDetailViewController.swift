@@ -40,12 +40,10 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
             
         })
         let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
-//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//
-//            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! FavoritesSearchVC
-//            self.present(nextViewController, animated:true, completion:nil)
+
             self.navigationController?.pushViewController(FavoritesSearchVC(), animated: true)
         })
+        
         let directionsAction = UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in
             guard let venueLat = self.venue?.location.lat,
                 let venueLong = self.venue?.location.lng else {return}

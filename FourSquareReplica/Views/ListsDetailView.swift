@@ -14,27 +14,13 @@ class ListsDetailView: UIView {
         let label = UILabel()
         label.text = "words"
         label.textColor = .black
-        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 25)
         label.textAlignment = .center
         label.backgroundColor = .clear
         return label
     }()
     
-//    lazy var addButton:UIButton = {
-//        let button = UIButton()
-//        button.setTitle("   Favorite   ", for: .normal)
-//        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-//        button.backgroundColor = #colorLiteral(red: 0.5408302546, green: 0.6452511549, blue: 0.9180483222, alpha: 1)
-//        button.layer.cornerRadius = 10
-//        button.layer.borderWidth = 2
-//        button.layer.borderColor = UIColor.gray.cgColor
-//        return button
-//    }()
-    
-    @objc private func addButtonPressed() {
-        print("this will segue to a search view")
-    }
-    
+
     lazy var favoritesTV: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .white
@@ -46,7 +32,6 @@ class ListsDetailView: UIView {
         super.init(frame: UIScreen.main.bounds)
         self.favoritesTV.register(ListsDetailTableViewCell.self, forCellReuseIdentifier: "ListTVCell")
         titleLabelSetup()
-        //addButtonSetup()
         favoritesTVSetup()
         backgroundColor = .white
     }
@@ -62,13 +47,6 @@ class ListsDetailView: UIView {
         titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
     }
-    
-//    private func addButtonSetup() {
-//        addSubview(addButton)
-//        addButton.translatesAutoresizingMaskIntoConstraints = false
-//        addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
-//        addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-//    }
     
     private func favoritesTVSetup() {
         addSubview(favoritesTV)

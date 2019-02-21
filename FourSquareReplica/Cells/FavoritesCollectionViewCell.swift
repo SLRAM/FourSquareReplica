@@ -12,7 +12,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     lazy var favoritePlace: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
         return label
     }()
     

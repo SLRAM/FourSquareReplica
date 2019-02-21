@@ -67,10 +67,8 @@ class HomeViewController: UIViewController {
         }
         homeView.delegate = self
         homeViewSetup()
-        setupHomeView()
 //        centerOnMap(location: initialLocation)
         homeMapView.mapView.delegate = self
-        getVenues(near: "", query: "Sushi")
        // setupAnnotations()
     }
     func setupAnnotations(){

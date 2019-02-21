@@ -23,11 +23,7 @@ struct Venues: Codable {
     let categories: [Categories]
 }
 struct LocationContainer: Codable {
-<<<<<<< HEAD
-    let address: String?
-=======
     let address: String
->>>>>>> qa
     let lat: Double?
     let lng: Double?
     let distance: Int
@@ -36,14 +32,10 @@ struct LocationContainer: Codable {
     let state: String
     let country: String
     public var coordinate: CLLocationCoordinate2D {
-<<<<<<< HEAD
-        return CLLocationCoordinate2DMake(lat!, lng!)
-=======
         guard let lat = lat, let lng = lng else {
             fatalError("lat and long are nil")
         }
         return CLLocationCoordinate2DMake(lat, lng)
->>>>>>> qa
     }
     
 }

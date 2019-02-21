@@ -13,8 +13,9 @@ class ListsDetailTableViewCell: UITableViewCell {
     lazy var favoritesNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
         label.textAlignment = .left
-        label.backgroundColor = .gray
+        label.backgroundColor = .clear
         return label
     }()
     
@@ -22,8 +23,8 @@ class ListsDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
-        label.backgroundColor = .gray
-        label.text = "name of place\nstreet address\ncity and state"
+        label.backgroundColor = .clear
+        label.text = "street address\ncity and state"
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

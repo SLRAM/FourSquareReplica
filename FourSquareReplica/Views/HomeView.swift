@@ -25,7 +25,8 @@ class HomeView: UIView {
     }()
     lazy var queryTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "ex. pancakes"
+        tf.placeholder = "Search FourSquares"
+//        tf.placeholder = "What are you looking for?"
         tf.textColor = .black
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 2

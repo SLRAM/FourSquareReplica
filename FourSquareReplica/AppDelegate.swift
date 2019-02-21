@@ -21,13 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let logoVC = LogoViewController()
         logoVC.title = "Home"
+        
         let logoNav = UINavigationController.init(rootViewController: logoVC)
+        logoNav.navigationBar.barTintColor = UIColor.black
+        logoNav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let listsVC = ListsViewController()
-        let listsNav = UINavigationController.init(rootViewController: listsVC)
         listsVC.title = "Lists"
+
+        let listsNav = UINavigationController.init(rootViewController: listsVC)
+        listsNav.navigationBar.barTintColor = UIColor.black
+        listsNav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let tab = UITabBarController()
+        tab.tabBar.barTintColor = UIColor.black
+        tab.tabBar.tintColor = UIColor.white
         tab.viewControllers = [logoNav,listsNav]
         
         window = UIWindow.init(frame: UIScreen.main.bounds)

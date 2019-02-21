@@ -16,20 +16,45 @@ class LogoView: UIView {
     weak var delegate: LogoViewDelegate?
     
     public lazy var detailImageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "Placeholder"))
+        let iv = UIImageView(image: UIImage(named: "7"))
         iv.contentMode = .scaleToFill
         return iv
     }()
+
+    lazy var searchButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("What are you looking for?", for: .normal)
+//        button.titleLabel?.textColor = .gray
+        button.backgroundColor = .gray
+        button.clipsToBounds = true
+        button.alpha = 0.7
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
+        return button
+    }()
+    @objc func searchPressed() {
+        print("search pressed")
+        UIView.transition(with: self.searchButton, duration: 1, options: [.curveEaseInOut], animations: {
+            self.searchButton.transform = CGAffineTransform(scaleX: 5.0, y: 5.0)
+            self.searchButton.frame.origin.y -= self.bounds.height
+        }){ (done) in
+            self.searchButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.searchButton.frame.origin.y += self.bounds.height
+            self.delegate?.queryTerm(query: "")
+        }
+    }
     
     lazy var myButtonView: UIView = {
         let myv = UIView()
-        myv.backgroundColor = .white
+        myv.backgroundColor = .black
         return myv
     }()
     
     public lazy var breakfastButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "1"), for: .normal)
+        button.setImage(UIImage(named: "3"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(breakfastPressed), for: .touchUpInside)
@@ -38,13 +63,16 @@ class LogoView: UIView {
     
     @objc func breakfastPressed() {
         print("breakfast pressed")
-        delegate?.queryTerm(query: "breakfast")
-        
+        UIView.transition(with: self.breakfastButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.breakfastButton.setImage(UIImage(named: "3"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "breakfast")
+        }
     }
     
     public lazy var lunchButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "2"), for: .normal)
+        button.setImage(UIImage(named: "1"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(lunchPressed), for: .touchUpInside)
@@ -53,13 +81,17 @@ class LogoView: UIView {
     
     @objc func lunchPressed() {
         print("lunch pressed")
-        delegate?.queryTerm(query: "lunch")
+        UIView.transition(with: self.lunchButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.lunchButton.setImage(UIImage(named: "1"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "lunch")
+        }
         
     }
     
     public lazy var dinnerButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "3"), for: .normal)
+        button.setImage(UIImage(named: "2"), for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5187909007, green: 0.6190392375, blue: 1, alpha: 1)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(dinnerPressed), for: .touchUpInside)
@@ -68,7 +100,11 @@ class LogoView: UIView {
     
     @objc func dinnerPressed() {
         print("dinner pressed")
-        delegate?.queryTerm(query: "dinner")
+        UIView.transition(with: self.dinnerButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.dinnerButton.setImage(UIImage(named: "2"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "dinner")
+        }
         
     }
     public lazy var coffeeTeaButton: UIButton = {
@@ -82,7 +118,11 @@ class LogoView: UIView {
     
     @objc func coffeeTeaPressed() {
         print("Coffe & Tea pressed")
-        delegate?.queryTerm(query: "coffee & tea")
+        UIView.transition(with: self.coffeeTeaButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.coffeeTeaButton.setImage(UIImage(named: "4"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "coffee & tea")
+        }
         
     }
     public lazy var nightlifeButton: UIButton = {
@@ -96,7 +136,11 @@ class LogoView: UIView {
     
     @objc func nightlifePressed() {
         print("Nightlife pressed")
-        delegate?.queryTerm(query: "nightlife")
+        UIView.transition(with: self.nightlifeButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.nightlifeButton.setImage(UIImage(named: "5"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "nightlife")
+        }
         
     }
     public lazy var thingsButton: UIButton = {
@@ -110,7 +154,11 @@ class LogoView: UIView {
     
     @objc func thingsPressed() {
         print("things to do pressed")
-        delegate?.queryTerm(query: "things to do")
+        UIView.transition(with: self.thingsButton, duration: 0.5, options: [.curveEaseInOut, .transitionFlipFromRight], animations: {
+            self.thingsButton.setImage(UIImage(named: "6"), for: .normal)
+        }) { (done) in
+            self.delegate?.queryTerm(query: "things to do")
+        }
         
     }
 
@@ -131,8 +179,10 @@ class LogoView: UIView {
 extension LogoView {
     func setupLogoView() {
         setupImageView()
+        setupSearchButton()
         setupButtonView()
         setupbuttons()
+
     }
     func setupImageView() {
         addSubview(detailImageView)
@@ -141,6 +191,14 @@ extension LogoView {
         detailImageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
         detailImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 1.0).isActive = true
         detailImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
+    }
+    func setupSearchButton() {
+        addSubview(searchButton)
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        searchButton.bottomAnchor.constraint(equalTo: detailImageView.bottomAnchor).isActive = true
+        searchButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.66).isActive = true
+        searchButton.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
     }
     func setupButtonView() {
         addSubview(myButtonView)

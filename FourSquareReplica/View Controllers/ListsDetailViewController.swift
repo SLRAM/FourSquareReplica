@@ -32,9 +32,9 @@ extension ListsDetailViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = listDetailView.favoritesTV.dequeueReusableCell(withIdentifier: "ListTVCell", for: indexPath) as? ListsDetailTableViewCell else { return UITableViewCell()}
 //        cell.favoritesImage.image = UIImage(named: "Placeholder")
         cell.favoritesNameLabel.text = "name of place"
-        cell.backgroundColor = .red
+        cell.backgroundColor = #colorLiteral(red: 0.5557976961, green: 0.7569350004, blue: 0.892960012, alpha: 0.9393728596)
         cell.layer.borderWidth = 2
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.blue.cgColor
     
         return cell
     }

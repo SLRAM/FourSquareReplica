@@ -152,12 +152,6 @@ class HomeViewController: UIViewController {
             homeMapView.reloadInputViews()
         }
     }
-    func leaveMap() {
-        self.homeView.mapView.alpha = 0.0
-        navigationItem.rightBarButtonItem?.title == "List"
-        
-    }
-    
 }
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

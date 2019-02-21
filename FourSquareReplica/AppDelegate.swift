@@ -15,16 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let homeVC = HomeViewController()
-        homeVC.title = "Home"
-        let homeNav = UINavigationController.init(rootViewController: homeVC)
+//        let homeVC = HomeViewController()
+//        homeVC.title = "Home"
+//        let homeNav = UINavigationController.init(rootViewController: homeVC)
+        
+        let logoVC = LogoViewController()
+        logoVC.title = "Home"
+        
+        let logoNav = UINavigationController.init(rootViewController: logoVC)
+        logoNav.navigationBar.barTintColor = UIColor.black
+        logoNav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let listsVC = ListsViewController()
-        let listsNav = UINavigationController.init(rootViewController: listsVC)
         listsVC.title = "Lists"
+
+        let listsNav = UINavigationController.init(rootViewController: listsVC)
+        listsNav.navigationBar.barTintColor = UIColor.black
+        listsNav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let tab = UITabBarController()
-        tab.viewControllers = [homeNav,listsNav]
+        tab.tabBar.barTintColor = UIColor.black
+        tab.tabBar.tintColor = UIColor.white
+        tab.viewControllers = [logoNav,listsNav]
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = tab

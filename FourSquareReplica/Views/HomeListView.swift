@@ -31,7 +31,7 @@ class HomeListView: UIView {
         commonInit()
     }
     private func commonInit() {
-//        backgroundColor = .white
+        backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
         setupTableView()
     }
     

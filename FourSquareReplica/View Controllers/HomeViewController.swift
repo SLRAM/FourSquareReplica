@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     private let homeView = HomeView()
     public let identifer = "marker"
     private let homeListView = HomeListView()
-    private let homeMapView = HomeMapView()
 
    
     private let searchbarView = SearchBarView()
@@ -62,7 +61,7 @@ class HomeViewController: UIViewController {
         homeView.delegate = self
         homeViewSetup()
 //        centerOnMap(location: initialLocation)
-        homeMapView.mapView.delegate = self
+        homeView.mapView.delegate = self
         homeView.locationTextField.delegate = self
         homeView.queryTextField.delegate = self
        // setupAnnotations()
@@ -81,6 +80,10 @@ class HomeViewController: UIViewController {
             }
             getVenues(userLocation: userLocation, near: near, query: query)
         default:
+            homeView.locationTextField.text = "near me"
+            homeView.locationTextField.isEnabled = false
+            homeView.nearMeButton.setImage(UIImage(named: "icons8-location_filled"), for: .normal)
+//            homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.4481958747, green: 0.5343003273, blue: 0.7696674466, alpha: 1)
             if !query.isEmpty {
                 //if user accept and no query = use user location only
                 homeView.queryTextField.text = query
@@ -102,8 +105,8 @@ class HomeViewController: UIViewController {
             annotation.coordinate = coordinate
             annotation.title = venue.name
             annotation.subtitle = venue.location.address
-            homeMapView.mapView.setRegion(coordinateRegion, animated: true)
-            homeMapView.mapView.addAnnotation(annotation)
+            homeView.mapView.setRegion(coordinateRegion, animated: true)
+            homeView.mapView.addAnnotation(annotation)
         }
     }
     
@@ -147,9 +150,9 @@ class HomeViewController: UIViewController {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
                 self.homeView.mapView.alpha = 1.0
             })
-            self.view.addSubview(homeMapView)
+            self.view.addSubview(homeView)
             setupAnnotations()
-            homeMapView.reloadInputViews()
+            homeView.reloadInputViews()
         }
     }
     func leaveMap() {
@@ -169,9 +172,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let venueToSet = venues[indexPath.row]
         cell.locationName.text = "\(indexPath.row + 1). \(venueToSet.name)"
         cell.locationCategory.text = venueToSet.categories.first?.name
-        let venueDistance = venueToSet.location.distance?.description ?? "No distance available"
+        let venueDistance = venueToSet.location.distance?.description ?? " "
         cell.locationDistance.text = "Distance in meters: \(venueDistance)"
-//        cell.locationDescription.text =
+        let addressCount = venueToSet.location.formattedAddress.count
+        
+      
+        cell.locationDescription.numberOfLines = addressCount
+        var newStr = ""
+        for str in venueToSet.location.formattedAddress {
+            newStr += str + "\n"
+        }
+        cell.locationDescription.text = newStr
         ImageAPIClient.getImages(venueID: venueToSet.id) { (appError, imageInfo) in
             if let appError = appError {
                 print(appError)
@@ -248,6 +259,7 @@ extension HomeViewController: UITextFieldDelegate {
             let userLocation = userLocation {
            getVenues(userLocation: userLocation, near: locationString, query: query)
         }
+        textField.resignFirstResponder()
         return true
     }
 }
@@ -255,13 +267,18 @@ extension HomeViewController: UITextFieldDelegate {
 extension HomeViewController: HomeViewDelegate {
     func userLocationButton() {
         if statusRawValue == 4 {
-            if homeView.nearMeButton.backgroundColor == #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)  {
-                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.4481958747, green: 0.5343003273, blue: 0.7696674466, alpha: 1)
+            if homeView.nearMeButton.currentImage == UIImage(named: "icons8-marker") {
+//            if homeView.nearMeButton.backgroundColor == #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)  {
+                homeView.nearMeButton.setImage(UIImage(named: "icons8-location_filled"), for: .normal)
+//                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.4481958747, green: 0.5343003273, blue: 0.7696674466, alpha: 1)
                 print("highlighted")
                 homeView.locationTextField.text = "near me"
                 homeView.locationTextField.isEnabled = false
+                guard let query = query else {return}
+                getVenues(userLocation: updatedUserLocation, near: "", query: query)
             } else {
-                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)
+                homeView.nearMeButton.setImage(UIImage(named: "icons8-marker"), for: .normal)
+//                homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)
                 homeView.locationTextField.isEnabled = true
                 homeView.locationTextField.text = ""
                 homeView.locationTextField.placeholder = "ex. Miami"

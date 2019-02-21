@@ -21,6 +21,7 @@ struct Venues: Codable {
     let name: String // name of the venue
     let location: LocationContainer
     let categories: [Categories]
+    let hereNow: HereNow
 }
 struct LocationContainer: Codable {
     let address: String?
@@ -28,9 +29,10 @@ struct LocationContainer: Codable {
     let lng: Double?
     let distance: Int?
 //    let postalCode: String?
-    let city: String
+    let city: String?
     let state: String
     let country: String
+    let formattedAddress: [String]
     public var coordinate: CLLocationCoordinate2D {
         guard let lat = lat, let lng = lng else {
             fatalError("lat and long are nil")
@@ -38,12 +40,18 @@ struct LocationContainer: Codable {
         return CLLocationCoordinate2DMake(lat, lng)
     }
     
+    
 }
 struct Categories: Codable {
     let id: String // id for the type of category
     let name: String // name of the category
     let icon: IconContainer //Containts an icon image
 }
+
+struct HereNow: Codable {
+    let summary: String
+}
+
 
 struct IconContainer: Codable {
     let prefix: String //path ex: https ://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_

@@ -20,7 +20,7 @@ class HomeView: UIView {
     
     lazy var mySearchBarView: UIView = {
         let myv = UIView()
-        myv.backgroundColor = .white
+        myv.backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
         return myv
     }()
     lazy var queryTextField: UITextField = {
@@ -31,18 +31,21 @@ class HomeView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.gray.cgColor
+        tf.backgroundColor = #colorLiteral(red: 0.6924440265, green: 0.6956507564, blue: 0.7034814358, alpha: 1)
         tf.textAlignment = .center
         return tf
     }()
     
     lazy var nearMeButton:UIButton = {
         let button = UIButton()
-        button.setTitle("me", for: .normal)
+//        button.setTitle("me", for: .normal)
+        button.setBackgroundImage(UIImage(named: "icons8-marker"), for: .normal)
         button.addTarget(self, action: #selector(nearMeButtonPressed), for: .touchUpInside)
-        button.backgroundColor = #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.gray.cgColor
+//        button.backgroundColor = #colorLiteral(red: 0.6193930507, green: 0.7189580798, blue: 0.9812330604, alpha: 1)
+//        button.layer.cornerRadius = 10
+//        button.layer.borderWidth = 2
+//        button.layer.borderColor = UIColor.gray.cgColor
+        button.clipsToBounds = true
         return button
     }()
     @objc func nearMeButtonPressed() {
@@ -57,6 +60,7 @@ class HomeView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.gray.cgColor
+        tf.backgroundColor = #colorLiteral(red: 0.6924440265, green: 0.6956507564, blue: 0.7034814358, alpha: 1)
         tf.textAlignment = .center
         
         return tf
@@ -66,6 +70,7 @@ class HomeView: UIView {
         let tv = UITableView()
         tv.register(HomeListTableViewCell.self, forCellReuseIdentifier: "HomeListTableViewCell")
         tv.rowHeight = (UIScreen.main.bounds.width)/2
+        tv.backgroundColor = .clear
         return tv
     }()
     
@@ -85,6 +90,11 @@ class HomeView: UIView {
         commonInit()
         
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        nearMeButton.layer.cornerRadius = nearMeButton.bounds.width / 2.0
+//        nearMeButton.clipsToBounds = true
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -92,12 +102,16 @@ class HomeView: UIView {
     }
     private func commonInit() {
         setupViews()
-        backgroundColor = .white
+//        backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
     }
     
 }
 extension HomeView {
     func setupViews() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
         setupSearchBarView()
         setupHomeListView()
         setupHomeMapView()

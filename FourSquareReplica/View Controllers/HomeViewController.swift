@@ -9,9 +9,11 @@ import UIKit
 import MapKit
 
 class HomeViewController: UIViewController {
-    
+    public let identifer = "marker"
     private let homeListView = HomeListView()
     private let homeMapView = HomeMapView()
+
+   
     private let searchbarView = SearchBarView()
     private var venues = [Venues]()
     let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
@@ -24,6 +26,7 @@ class HomeViewController: UIViewController {
                 self.venues = venues
                 DispatchQueue.main.async {
                     self.homeListView.myTableView.reloadData()
+                    self.homeMapView.mapView.reloadInputViews()
                 }
             }
         }
@@ -35,13 +38,23 @@ class HomeViewController: UIViewController {
 //        makeSearchBar()
         mapListButton()
         setupHomeView()
+//        centerOnMap(location: initialLocation)
+        homeMapView.mapView.delegate = self
         getVenues(near: "", query: "Sushi")
+       // setupAnnotations()
     }
-    func makeSearchBar() {
-        let searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
-        searchBar.delegate = self
+    func setupAnnotations(){
+        for venue in venues {
+            let regionRadius: CLLocationDistance = 9000
+            let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat!, longitude: venue.location.lng!)
+            let coordinateRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = venue.name
+            annotation.subtitle = venue.location.address
+            homeMapView.mapView.setRegion(coordinateRegion, animated: true)
+            homeMapView.mapView.addAnnotation(annotation)
+        }
     }
     func mapListButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "List", style: .plain, target: self, action: #selector(toggle))
@@ -67,6 +80,7 @@ class HomeViewController: UIViewController {
             //quizView.myQuizCollectionView.reloadData()
         } else {
             self.view.addSubview(homeMapView)
+            setupAnnotations()
             //            setConstraints()
             homeMapView.reloadInputViews()
             //self.view.addSubview(emptyQuizView)
@@ -118,11 +132,31 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         detailVC.venue = venue
         detailVC.homeDetailView.detailImageView.image = selectedCell.cellImage.image
         //        detailVC
-        
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     
+}
+extension HomeViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let destinationVC = HomeDetailViewController()
+     navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
@@ -137,3 +171,4 @@ extension HomeViewController: UISearchBarDelegate {
         //userdefaults here
     }
 }
+

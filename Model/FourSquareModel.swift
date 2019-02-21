@@ -24,14 +24,17 @@ struct Venues: Codable {
 }
 struct LocationContainer: Codable {
     let address: String
-    let lat: Double
-    let lng: Double
+    let lat: Double?
+    let lng: Double?
     let distance: Int
     let postalCode: String
     let city: String
     let state: String
     let country: String
     public var coordinate: CLLocationCoordinate2D {
+        guard let lat = lat, let lng = lng else {
+            fatalError("lat and long are nil")
+        }
         return CLLocationCoordinate2DMake(lat, lng)
     }
     

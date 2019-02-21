@@ -17,12 +17,13 @@ class FavoritesSearchView: UIView {
         layout.itemSize = CGSize.init(width: 300, height: 340)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         let Collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        Collection.backgroundColor = .black
-        //layout.scrollDirection = .horizontal
+        Collection.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
         return Collection
     }()
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
+        backgroundColor = .white
+        addToListsCV.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
         addToListsSetUp()
         
     }

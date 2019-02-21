@@ -23,13 +23,13 @@ class FavoritesSearchVC: UIViewController {
 
 extension FavoritesSearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 
+        return FolderModel.getItems().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = favoritesSearch.addToListsCV.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as? FavoritesCollectionViewCell else { return UICollectionViewCell() }
-        //let folderInfo = FolderModel.getItems()[indexPath.row]
-        //cell.folderTitle.text = folderInfo.title
+        let folderInfo = FolderModel.getItems()[indexPath.row]
+        cell.favoritePlace.text = folderInfo.title
         return cell
     }
     

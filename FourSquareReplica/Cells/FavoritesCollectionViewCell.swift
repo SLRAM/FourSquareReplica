@@ -11,15 +11,14 @@ import UIKit
 class FavoritesCollectionViewCell: UICollectionViewCell {
     lazy var favoritePlace: UILabel = {
         let label = UILabel()
-        label.text = "Do i work"
         label.textAlignment = .center
-        //    label.backgroundColor = .purple
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
-        backgroundColor = .gray
+        backgroundColor = #colorLiteral(red: 0.5557976961, green: 0.7569350004, blue: 0.892960012, alpha: 0.9393728596)
         favoritePlaceSetUp()
     }
     

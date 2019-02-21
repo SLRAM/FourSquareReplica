@@ -23,10 +23,10 @@ struct Venues: Codable {
     let categories: [Categories]
 }
 struct LocationContainer: Codable {
-    let address: String
+    let address: String?
     let lat: Double?
     let lng: Double?
-    let distance: Int
+    let distance: Int?
 //    let postalCode: String?
     let city: String
     let state: String

@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     private var venues = [Venues]()
 //    let testingCoordinate = CLLocationCoordinate2D.init(latitude: 40.7484, longitude: -73.9857)
     var query : String?
+    var near = String()
     var locationString = String()
     var statusRawValue = Int32()
     var userLocation : CLLocationCoordinate2D?
@@ -57,19 +58,40 @@ class HomeViewController: UIViewController {
             homeView.mapView.showsUserLocation = true
         }
         mapListButton()
-        if let userLocation = userLocation, let query = query {
-            getVenues(userLocation: userLocation, near: "", query: query)
-
-        } else {
-            //fix this case. use blank query and correct user location info
-            getVenues(userLocation: updatedUserLocation, near: "nyc", query: "Taco")
-
-        }
+        setupLocation()
         homeView.delegate = self
         homeViewSetup()
 //        centerOnMap(location: initialLocation)
         homeMapView.mapView.delegate = self
+        homeView.locationTextField.delegate = self
+        homeView.queryTextField.delegate = self
        // setupAnnotations()
+    }
+    func setupLocation() {
+        guard let userLocation = userLocation,
+            let query = query else {return}
+        switch userLocation.latitude {
+        case 0.0:
+            near = "NYC"
+            homeView.locationTextField.text = near
+            locationString = near
+            if !query.isEmpty {
+                //if user deny and no query = use near only
+                homeView.queryTextField.text = query
+            }
+            getVenues(userLocation: userLocation, near: near, query: query)
+        default:
+            if !query.isEmpty {
+                //if user accept and no query = use user location only
+                homeView.queryTextField.text = query
+            }
+            getVenues(userLocation: userLocation, near: "", query: query)
+        }
+//        else {
+//            //fix this case. use blank query and correct user location info keep for search bar blank query push
+//            getVenues(userLocation: updatedUserLocation, near: "nyc", query: "")
+//
+//        }
     }
     func setupAnnotations(){
         for venue in venues {
@@ -147,7 +169,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let venueToSet = venues[indexPath.row]
         cell.locationName.text = "\(indexPath.row + 1). \(venueToSet.name)"
         cell.locationCategory.text = venueToSet.categories.first?.name
-        cell.locationDistance.text = "\(venueToSet.location.distance.description) meters away"
+        let venueDistance = venueToSet.location.distance?.description ?? "No distance available"
+        cell.locationDistance.text = "Distance in meters: \(venueDistance)"
 //        cell.locationDescription.text =
         ImageAPIClient.getImages(venueID: venueToSet.id) { (appError, imageInfo) in
             if let appError = appError {
@@ -212,7 +235,6 @@ extension HomeViewController: UITextFieldDelegate {
         return true
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //make textfield show query term
         if textField == homeView.queryTextField {
             print("query: \(String(describing: textField.text))")
             //guard for textfield stuff

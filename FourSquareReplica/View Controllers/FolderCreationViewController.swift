@@ -20,6 +20,45 @@ class FolderCreationViewController: UIViewController {
         folderCreation.TextFields1.delegate = self
         folderCreation.buttonforAlyson.addTarget(self, action: #selector(segueForAlyson), for: .touchUpInside)
         print(DataPersistenceManager.documentsDirectory())
+        folderCreation.cancelButton.transform =  CGAffineTransform(rotationAngle: 40.05)
+        folderCreation.cancelButton.alpha = 0.0
+        perform(#selector(somethingelse), with: AnyClass.self, afterDelay: 0.6)
+    }
+    
+    
+    @objc func somethingelse(){
+    folderCreation.cancelButton.alpha = 1
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        registerKeyboardNotifications()
+    }
+    
+   private func registerKeyboardNotifications() {
+    NotificationCenter.default.addObserver(self, selector: #selector(ShowKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(HideKeyBoard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+   @objc func ShowKeyboard(notification:Notification) {
+    guard let info = notification.userInfo,
+        let keyboardFrame = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
+            print("userInfo is nil")
+            return
+    }
+    
+    
+    folderCreation.alertView.transform = CGAffineTransform(translationX: 0, y: -130)
+    folderCreation.TextFields.transform = CGAffineTransform(translationX: 0, y: -130)
+    folderCreation.TextFields1.transform = CGAffineTransform(translationX: 0, y: -130)
+    folderCreation.buttonforAlyson.transform = CGAffineTransform(translationX: 0, y: -130)
+    }
+    
+    @objc private func HideKeyBoard(notification:Notification){
+        folderCreation.alertView.transform = CGAffineTransform.identity
+        folderCreation.buttonforAlyson.transform = CGAffineTransform.identity
+        folderCreation.TextFields.transform = CGAffineTransform.identity
+        folderCreation.TextFields1.transform = CGAffineTransform.identity
     }
     
     @objc func segueForAlyson() {
@@ -35,10 +74,13 @@ class FolderCreationViewController: UIViewController {
         if self.folderCreation.TextFields.text == "" || self.folderCreation.TextFields.text == " " {
                 self.createAlertForFolderIfEmpty(title:"Please enter a title", message: "Can't create a folder without a title")
         } else {
-        let folderDetails = folderSetUp.init(title: self.folderCreation.TextFields.text!, description: self.folderCreation.TextFields1.text!, createdAt: timestamp)
-            FolderModel.addItem(item: folderDetails)
-            listsView.folderCollectionView.reloadData()
-            dismiss(animated: true , completion: nil)
+      // let folderDetails = folderSetUp.init(title: <#T##String#>, description: <#T##String#>, createdAt: <#T##String#>, arrayInfo: <#T##[things]#>)
+            
+            
+//            folderSetUp.init(title: self.folderCreation.TextFields.text!, description: self.folderCreation.TextFields1.text!, createdAt: timestamp)
+//            FolderModel.addItem(item: folderDetails)
+//            listsView.folderCollectionView.reloadData()
+//            dismiss(animated: true , completion: nil)
             }
     }
     
@@ -54,9 +96,9 @@ class FolderCreationViewController: UIViewController {
 }
 
 extension FolderCreationViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == "" || textField.text == " " {
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

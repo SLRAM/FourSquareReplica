@@ -31,7 +31,6 @@ class FavoritesSearchView: UIView {
     }
     
     func addToListsSetUp() {
-        
     addSubview(addToListsCV)
     addToListsCV.translatesAutoresizingMaskIntoConstraints = false
     addToListsCV.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true

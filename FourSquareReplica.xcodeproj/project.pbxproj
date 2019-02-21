@@ -43,6 +43,9 @@
 		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
 		C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960E221C992100459917 /* FavoritesSearchView.swift */; };
 		C66BEE5D221EFF6A007CF866 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66BEE5C221EFF6A007CF866 /* FavoritesCollectionViewCell.swift */; };
+		9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26A221DB8FB0017C25C /* HomeView.swift */; };
+		9750E26D221E0F070017C25C /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26C221E0F070017C25C /* LogoView.swift */; };
+		9750E26F221E1A440017C25C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26E221E1A440017C25C /* LogoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
 		C615960E221C992100459917 /* FavoritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchView.swift; sourceTree = "<group>"; };
 		C66BEE5C221EFF6A007CF866 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9750E26A221DB8FB0017C25C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9750E26C221E0F070017C25C /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		9750E26E221E1A440017C25C /* LogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 		9703D383220E1A7300B7E11A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9750E26E221E1A440017C25C /* LogoViewController.swift */,
 				9703D377220E167000B7E11A /* HomeViewController.swift */,
 				C615960C221C98EF00459917 /* FavoritesSearchVC.swift */,
 				551C6B5E2217745E00C7239A /* FolderCreationViewController.swift */,
@@ -179,9 +186,11 @@
 		9703D384220E1A7E00B7E11A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9750E26C221E0F070017C25C /* LogoView.swift */,
 				9703D37F220E1A2900B7E11A /* HomeListView.swift */,
 				551C6B60221774B100C7239A /* FoldercreationView.swift */,
 				9703D381220E1A4000B7E11A /* HomeMapView.swift */,
+				9750E26A221DB8FB0017C25C /* HomeView.swift */,
 				974FA103221C975A006381DD /* SearchBarView.swift */,
 				974FA09E22137C1F006381DD /* HomeDetailView.swift */,
 				9703D37D220E19BA00B7E11A /* ListsView.swift */,
@@ -289,6 +298,8 @@
 				974FA09D22137BD1006381DD /* HomeDetailViewController.swift in Sources */,
 				9703D362220DECD300B7E11A /* AppDelegate.swift in Sources */,
 				974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */,
+				9750E26F221E1A440017C25C /* LogoViewController.swift in Sources */,
+				9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */,
 				9703D37E220E19BA00B7E11A /* ListsView.swift in Sources */,
 				C66BEE5D221EFF6A007CF866 /* FavoritesCollectionViewCell.swift in Sources */,
 				974FA104221C975A006381DD /* SearchBarView.swift in Sources */,
@@ -315,6 +326,7 @@
 				9703D37A220E16B600B7E11A /* ListsViewController.swift in Sources */,
 				C615960B221C978A00459917 /* favoritesModel.swift in Sources */,
 				9703D391220E1BBA00B7E11A /* ListsDetailTableViewCell.swift in Sources */,
+				9750E26D221E0F070017C25C /* LogoView.swift in Sources */,
 				974FA0AA221629B9006381DD /* appError.swift in Sources */,
 				9703D38F220E1BA200B7E11A /* ListsDetailView.swift in Sources */,
 				551C6B5F2217745F00C7239A /* FolderCreationViewController.swift in Sources */,
@@ -456,7 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27KQ4G2M79;
+				DEVELOPMENT_TEAM = FSUP887MQU;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27KQ4G2M79;
+				DEVELOPMENT_TEAM = FSUP887MQU;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

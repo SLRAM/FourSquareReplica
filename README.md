@@ -46,6 +46,8 @@ This view has:
    * Map view
    * Location annotations of searched venues
    * when annotation is clicked it segues to home detail
+   
+   ![home views gif](https://github.com/SLRAM/FourSquareReplica/blob/dev-steph/Images/locationSearch.gif)
 
 ### Home Detail
 

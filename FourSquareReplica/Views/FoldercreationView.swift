@@ -10,13 +10,19 @@ import UIKit
 
 class FoldercreationView: UIView {
     
+    lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "cancelButton"), for: .normal)
+        return button
+    }()
     lazy var buttonforAlyson: UIButton = {
         let button = UIButton()
-        button.setTitle("HI Alyson", for: .normal)
+        button.setTitle("Create Folder", for: .normal)
         button.backgroundColor = .blue
+     // button.titleLabel?.textColor = .black
       return button
     }()
-    
+
     lazy var alertView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -31,17 +37,20 @@ class FoldercreationView: UIView {
     lazy var TextFields1: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Description"
-        textField.backgroundColor = .red
+        textField.backgroundColor = .gray
         return textField
     }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
-        self.backgroundColor = #colorLiteral(red: 0.1342799664, green: 0.1250010133, blue: 0.853731811, alpha: 0.1402280468)
-        self.isOpaque = true
-        self.clearsContextBeforeDrawing = true
+        self.backgroundColor = #colorLiteral(red: 0.1549701691, green: 0.1442655027, blue: 0.9850149751, alpha: 0.4210206877)
+        //self.backgroundColor = .blue
+        //self.isOpaque = true
+        // self.clearsContextBeforeDrawing = true
         SetUp()
     }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -53,27 +62,38 @@ class FoldercreationView: UIView {
         addSubview(TextFields)
         addSubview(TextFields1)
         addSubview(buttonforAlyson)
+        addSubview(cancelButton)
         alertView.translatesAutoresizingMaskIntoConstraints = false
-        alertView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75).isActive = true
-        alertView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
+        alertView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4).isActive = true
+        alertView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
         alertView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         alertView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         TextFields.translatesAutoresizingMaskIntoConstraints = false
+        TextFields.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100).isActive = true
         TextFields.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 11).isActive = true
         TextFields.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -11).isActive = true
-        TextFields1.centerYAnchor.constraint(equalToSystemSpacingBelow: centerYAnchor, multiplier: 1).isActive = true
+        
         TextFields1.translatesAutoresizingMaskIntoConstraints = false
         TextFields1.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 11).isActive = true
         TextFields1.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -11).isActive = true
-        TextFields1.topAnchor.constraint(equalTo: TextFields.bottomAnchor, constant: 11).isActive = true
+       TextFields1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40).isActive = true
+        //TextFields1.topAnchor.constraint(equalTo: TextFields.bottomAnchor).isActive = true
+
         
         buttonforAlyson.translatesAutoresizingMaskIntoConstraints = false
         //buttonforAlyson.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
         //buttonforAlyson.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1).isActive = true
-        
         buttonforAlyson.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        buttonforAlyson.centerYAnchor.constraint(equalTo: TextFields1.bottomAnchor, constant: 40) .isActive = true
+        buttonforAlyson.centerYAnchor.constraint(equalTo: TextFields1.bottomAnchor, constant: 180) .isActive = true
+        buttonforAlyson.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: 0).isActive = true
+        
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 300).isActive = true
+        cancelButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
+        cancelButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.22).isActive = true
     }
     
 }

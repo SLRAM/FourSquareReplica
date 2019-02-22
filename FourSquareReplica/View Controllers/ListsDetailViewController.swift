@@ -38,6 +38,8 @@ extension ListsDetailViewController: UITableViewDelegate, UITableViewDataSource 
         cell.backgroundColor = #colorLiteral(red: 0.5557976961, green: 0.7569350004, blue: 0.892960012, alpha: 0.9393728596)
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.blue.cgColor
+        cell.backgroundColor = .clear
+
     
         return cell
     }

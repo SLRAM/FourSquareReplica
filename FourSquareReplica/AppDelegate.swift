@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let logoVC = LogoViewController()
         logoVC.title = "Home"
+        logoVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "icons8-home_page"), tag: 0)
         
         let logoNav = UINavigationController.init(rootViewController: logoVC)
         logoNav.navigationBar.barTintColor = UIColor.black
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let listsVC = ListsViewController()
         listsVC.title = "Lists"
+        listsVC.tabBarItem = UITabBarItem(title: "Lists", image: UIImage(named: "icons8-list"), tag: 0)
+
 
         let listsNav = UINavigationController.init(rootViewController: listsVC)
         listsNav.navigationBar.barTintColor = UIColor.black

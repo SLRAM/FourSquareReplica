@@ -14,30 +14,16 @@ class ListsDetailView: UIView {
         let label = UILabel()
         label.text = "words"
         label.textColor = .black
-        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 25)
         label.textAlignment = .center
-        label.backgroundColor = .clear
+        label.backgroundColor = #colorLiteral(red: 1, green: 0.3412312865, blue: 0.3433039784, alpha: 1)
         return label
     }()
     
-//    lazy var addButton:UIButton = {
-//        let button = UIButton()
-//        button.setTitle("   Favorite   ", for: .normal)
-//        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-//        button.backgroundColor = #colorLiteral(red: 0.5408302546, green: 0.6452511549, blue: 0.9180483222, alpha: 1)
-//        button.layer.cornerRadius = 10
-//        button.layer.borderWidth = 2
-//        button.layer.borderColor = UIColor.gray.cgColor
-//        return button
-//    }()
-    
-    @objc private func addButtonPressed() {
-        print("this will segue to a search view")
-    }
-    
+
     lazy var favoritesTV: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = .white
+        tv.backgroundColor = .clear
         return tv
     }()
     
@@ -46,9 +32,8 @@ class ListsDetailView: UIView {
         super.init(frame: UIScreen.main.bounds)
         self.favoritesTV.register(ListsDetailTableViewCell.self, forCellReuseIdentifier: "ListTVCell")
         titleLabelSetup()
-        //addButtonSetup()
         favoritesTVSetup()
-        backgroundColor = .white
+//        backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,21 +41,20 @@ class ListsDetailView: UIView {
     }
     
     private func titleLabelSetup() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
+
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 39).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
     }
     
-//    private func addButtonSetup() {
-//        addSubview(addButton)
-//        addButton.translatesAutoresizingMaskIntoConstraints = false
-//        addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
-//        addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-//    }
-    
     private func favoritesTVSetup() {
+        
         addSubview(favoritesTV)
         favoritesTV.translatesAutoresizingMaskIntoConstraints = false
         favoritesTV.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

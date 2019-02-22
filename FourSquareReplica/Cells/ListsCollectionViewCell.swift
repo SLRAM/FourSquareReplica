@@ -28,6 +28,7 @@ class ListsCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         //self.backgroundColor = .blue
+        self.backgroundColor = .gray
         Constraints()
     }
     

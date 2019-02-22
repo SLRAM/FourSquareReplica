@@ -51,6 +51,7 @@ class ListsViewController: UIViewController {
 }
 extension ListsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //add title to keep name on to titlelabel in lists detail view
         navigationController?.pushViewController(ListsDetailViewController(), animated: true)
     }
 }

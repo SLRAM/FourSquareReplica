@@ -25,8 +25,16 @@ class HomeDetailViewController: UIViewController {
 //        self.navigationController?.navigationBar.isTranslucent = true
 
         homeDetailView.nameLabel.text = venue?.name
-        homeDetailView.addressLabel.text = venue?.location.address
-//        homeDetailView.hoursLabel.text =
+        guard let addressCount = venue?.location.formattedAddress.count else {return}
+        homeDetailView.addressLabel.numberOfLines = addressCount + 1
+        var newStr = ""
+        guard let formattedAddress = venue?.location.formattedAddress else {return}
+        for str in formattedAddress {
+            newStr += str + "\n"
+        }
+        homeDetailView.addressLabel.text = newStr
+        let venueDistance = venue?.location.distance?.description ?? " "
+        homeDetailView.distanceLabel.text = "Distance in meters: \(venueDistance)"
         homeDetailView.categoriesLabel.text = venue?.categories.first?.name
     }
     
@@ -44,13 +52,17 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
             FavoritesModel.addItem(item: storeStuff)
             self.navigationController?.pushViewController(FavoritesSearchVC(), animated: true)
             
+            
+
+            self.navigationController?.pushViewController(ListsViewController(), animated: true)
         })
+        
         let directionsAction = UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in
             guard let venueLat = self.venue?.location.lat,
                 let venueLong = self.venue?.location.lng else {return}
             let coordinate = CLLocationCoordinate2DMake(venueLat,venueLong)
             let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-            mapItem.name = "Target location"
+            mapItem.name = self.venue?.name
             mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

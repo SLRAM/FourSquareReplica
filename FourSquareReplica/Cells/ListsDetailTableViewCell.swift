@@ -13,9 +13,10 @@ class ListsDetailTableViewCell: UITableViewCell {
     lazy var favoritesNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 16)
+        label.text = "name of place"
+        label.font = UIFont(name: "AvenirNext-Bold", size: 18)
         label.textAlignment = .left
-        label.backgroundColor = .clear
+//        label.backgroundColor = #colorLiteral(red: 1, green: 0.5315278172, blue: 0.8206806779, alpha: 1)
         return label
     }()
     
@@ -23,8 +24,9 @@ class ListsDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
-        label.backgroundColor = .clear
+//        label.backgroundColor = #colorLiteral(red: 0.4260549545, green: 0.2493847907, blue: 0.7767984271, alpha: 1)
         label.text = "street address\ncity and state"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -59,7 +61,7 @@ class ListsDetailTableViewCell: UITableViewCell {
     func favoritesLabelSetup() {
         addSubview(favoritesNameLabel)
         favoritesNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        favoritesNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 11).isActive = true
+        favoritesNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25).isActive = true
         favoritesNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.65).isActive = true
         favoritesNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
     }
@@ -67,7 +69,7 @@ class ListsDetailTableViewCell: UITableViewCell {
     func favoritesAddressLabelSetup() {
         addSubview(favoritesAddressLabel)
         favoritesAddressLabel.translatesAutoresizingMaskIntoConstraints = false
-        favoritesAddressLabel.topAnchor.constraint(equalTo: favoritesNameLabel.bottomAnchor, constant: 8).isActive = true
+        favoritesAddressLabel.topAnchor.constraint(equalTo: favoritesNameLabel.bottomAnchor).isActive = true
         favoritesAddressLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.65).isActive = true
         favoritesAddressLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
     }

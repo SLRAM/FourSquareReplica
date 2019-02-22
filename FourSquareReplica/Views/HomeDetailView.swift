@@ -24,27 +24,31 @@ class HomeDetailView: UIView {
         label.textColor = .black
         label.backgroundColor = .clear
         label.text = "Location Name"
+        label.font = UIFont(name: "AvenirNext-Bold", size: 18)
         return label
     }()
     lazy var addressLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         label.text = "Location Address"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
-    lazy var hoursLabel: UILabel = {
+    lazy var distanceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.text = "Location Hours"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
     lazy var categoriesLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.textColor = .white
+//        label.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         label.text = "Location Categories"
+        label.font = UIFont(name: "Avenir Next", size: 16)
         return label
     }()
     
@@ -86,6 +90,11 @@ class HomeDetailView: UIView {
 }
 extension HomeDetailView {
     func setupDetailView() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
+        
         detailImage()
         detailNameLabel()
         detailAddressLabel()
@@ -97,7 +106,7 @@ extension HomeDetailView {
         addSubview(detailImageView)
         detailImageView.translatesAutoresizingMaskIntoConstraints = false
         detailImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        detailImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.40).isActive = true
+        detailImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.50).isActive = true
         detailImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
         detailImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
@@ -113,22 +122,22 @@ extension HomeDetailView {
         addSubview(addressLabel)
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         addressLabel.topAnchor.constraint(equalTo: detailImageView.bottomAnchor).isActive = true
-        addressLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
+        addressLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.15).isActive = true
         addressLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     func detailHoursLabel() {
-        addSubview(hoursLabel)
-        hoursLabel.translatesAutoresizingMaskIntoConstraints = false
-        hoursLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor).isActive = true
-        hoursLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
-        hoursLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
-        hoursLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        addSubview(distanceLabel)
+        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        distanceLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor).isActive = true
+        distanceLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.15).isActive = true
+        distanceLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
+        distanceLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     }
     func detailCategoryLabel() {
         addSubview(categoriesLabel)
         categoriesLabel.translatesAutoresizingMaskIntoConstraints = false
-        categoriesLabel.topAnchor.constraint(equalTo: hoursLabel.bottomAnchor).isActive = true
+        categoriesLabel.topAnchor.constraint(equalTo: distanceLabel.bottomAnchor).isActive = true
         categoriesLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
         categoriesLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1.0).isActive = true
         categoriesLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true

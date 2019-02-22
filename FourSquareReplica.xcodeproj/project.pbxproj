@@ -10,6 +10,7 @@
 		484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484A99D022136E1400C97CAA /* FourSquareModel.swift */; };
 		486D5CA822138958005ABFF0 /* FourSquareApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CA722138958005ABFF0 /* FourSquareApiClient.swift */; };
 		48E9410B220E35CC00E92242 /* PrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9410A220E35CC00E92242 /* PrivateInfo.swift */; };
+		5518E33D22203A2900AB35B8 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518E33C22203A2900AB35B8 /* TipViewController.swift */; };
 		551C6B592217737F00C7239A /* DataPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B582217737F00C7239A /* DataPersistance.swift */; };
 		551C6B5B221773A900C7239A /* FolderSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B5A221773A900C7239A /* FolderSetUp.swift */; };
 		551C6B5D221773BA00C7239A /* FolderSetUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B5C221773BA00C7239A /* FolderSetUpModel.swift */; };
@@ -46,19 +47,13 @@
 		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
 		C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960E221C992100459917 /* FavoritesSearchView.swift */; };
 		C66BEE5D221EFF6A007CF866 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66BEE5C221EFF6A007CF866 /* FavoritesCollectionViewCell.swift */; };
-		9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26A221DB8FB0017C25C /* HomeView.swift */; };
-		9750E26D221E0F070017C25C /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26C221E0F070017C25C /* LogoView.swift */; };
-		9750E26F221E1A440017C25C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26E221E1A440017C25C /* LogoViewController.swift */; };
-		C6159609221C949D00459917 /* FavoritesSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159608221C949D00459917 /* FavoritesSetUp.swift */; };
-		C615960B221C978A00459917 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960A221C978A00459917 /* favoritesModel.swift */; };
-		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
-		C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960E221C992100459917 /* FavoritesSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		484A99D022136E1400C97CAA /* FourSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareModel.swift; sourceTree = "<group>"; };
 		486D5CA722138958005ABFF0 /* FourSquareApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareApiClient.swift; sourceTree = "<group>"; };
 		48E9410A220E35CC00E92242 /* PrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfo.swift; sourceTree = "<group>"; };
+		5518E33C22203A2900AB35B8 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		551C6B582217737F00C7239A /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
 		551C6B5A221773A900C7239A /* FolderSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSetUp.swift; sourceTree = "<group>"; };
 		551C6B5C221773BA00C7239A /* FolderSetUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSetUpModel.swift; sourceTree = "<group>"; };
@@ -97,13 +92,6 @@
 		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
 		C615960E221C992100459917 /* FavoritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchView.swift; sourceTree = "<group>"; };
 		C66BEE5C221EFF6A007CF866 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
-		9750E26A221DB8FB0017C25C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		9750E26C221E0F070017C25C /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		9750E26E221E1A440017C25C /* LogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
-		C6159608221C949D00459917 /* FavoritesSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSetUp.swift; sourceTree = "<group>"; };
-		C615960A221C978A00459917 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
-		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
-		C615960E221C992100459917 /* FavoritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +176,7 @@
 			children = (
 				9750E26E221E1A440017C25C /* LogoViewController.swift */,
 				9703D377220E167000B7E11A /* HomeViewController.swift */,
+				5518E33C22203A2900AB35B8 /* TipViewController.swift */,
 				C615960C221C98EF00459917 /* FavoritesSearchVC.swift */,
 				551C6B5E2217745E00C7239A /* FolderCreationViewController.swift */,
 				974FA09C22137BD1006381DD /* HomeDetailViewController.swift */,
@@ -323,6 +312,7 @@
 				9703D378220E167000B7E11A /* HomeViewController.swift in Sources */,
 				C6159609221C949D00459917 /* FavoritesSetUp.swift in Sources */,
 				551C6B61221774B100C7239A /* FoldercreationView.swift in Sources */,
+				5518E33D22203A2900AB35B8 /* TipViewController.swift in Sources */,
 				484A99D122136E1400C97CAA /* FourSquareModel.swift in Sources */,
 				974FA09F22137C1F006381DD /* HomeDetailView.swift in Sources */,
 				9703D382220E1A4000B7E11A /* HomeMapView.swift in Sources */,

@@ -35,10 +35,10 @@ class HomeViewController: UIViewController {
             } else if let venues = venues {
                 self.venues = venues
                 DispatchQueue.main.async {
+                    self.homeView.reloadInputViews()
                     self.homeView.myTableView.reloadData()
                     self.homeView.mapView.reloadInputViews()
                     dump(venues)
-
                 }
             }
         }
@@ -59,9 +59,11 @@ class HomeViewController: UIViewController {
         mapListButton()
         setupLocation()
         homeView.delegate = self
+        
         homeViewSetup()
 //        centerOnMap(location: initialLocation)
         homeView.mapView.delegate = self
+        
         homeView.locationTextField.delegate = self
         homeView.queryTextField.delegate = self
        // setupAnnotations()
@@ -83,6 +85,9 @@ class HomeViewController: UIViewController {
             homeView.locationTextField.text = "near me"
             homeView.locationTextField.isEnabled = false
             homeView.nearMeButton.setImage(UIImage(named: "icons8-location_filled"), for: .normal)
+            let myCurrentRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 9000, longitudinalMeters: 9000)
+            homeView.mapView.setRegion(myCurrentRegion, animated: true)
+
 //            homeView.nearMeButton.backgroundColor = #colorLiteral(red: 0.4481958747, green: 0.5343003273, blue: 0.7696674466, alpha: 1)
             if !query.isEmpty {
                 //if user accept and no query = use user location only
@@ -97,6 +102,8 @@ class HomeViewController: UIViewController {
 //        }
     }
     func setupAnnotations(){
+        let allAnnotations = self.homeView.mapView.annotations
+        self.homeView.mapView.removeAnnotations(allAnnotations)
         for venue in venues {
             let regionRadius: CLLocationDistance = 9000
             let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat!, longitude: venue.location.lng!)
@@ -107,7 +114,11 @@ class HomeViewController: UIViewController {
             annotation.subtitle = venue.location.address
             homeView.mapView.setRegion(coordinateRegion, animated: true)
             homeView.mapView.addAnnotation(annotation)
+            
         }
+        let myCurrentRegion = MKCoordinateRegion(center: venues[0].location.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
+        homeView.mapView.setRegion(myCurrentRegion, animated: true)
+
     }
     
     func mapListButton() {
@@ -252,7 +263,9 @@ extension HomeViewController: UITextFieldDelegate {
         if let query = query,
             let userLocation = userLocation {
            getVenues(userLocation: userLocation, near: locationString, query: query)
+            setupAnnotations()
         }
+        
         textField.resignFirstResponder()
         return true
     }
@@ -300,7 +313,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         statusRawValue = status.rawValue
         locationManager.startUpdatingLocation()
         let currentLocation = homeView.mapView.userLocation
-        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
         homeView.mapView.setRegion(myCurrentRegion, animated: true)
         print(status.rawValue)
     }
@@ -309,8 +322,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         guard let currentLocation = locations.last else {return}
         updatedUserLocation = currentLocation.coordinate
         print("The user is in lat: \(currentLocation.coordinate.latitude) and long:\(currentLocation.coordinate.longitude)")
-        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        homeView.mapView.setRegion(myCurrentRegion, animated: true)
+//        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
+//        homeView.mapView.setRegion(myCurrentRegion, animated: true)
 //        getVenues(userLocation: updatedUserLocation, near: "", query: "Taco")
     }
 }

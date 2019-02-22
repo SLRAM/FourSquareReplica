@@ -17,7 +17,7 @@ class FavoritesSearchView: UIView {
         layout.itemSize = CGSize.init(width: 300, height: 340)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         let Collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        Collection.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        //Collection.backgroundColor = #colorLiteral(red: 1, green: 0.8055025935, blue: 0.9865790009, alpha: 1)
         return Collection
     }()
     override init(frame: CGRect) {

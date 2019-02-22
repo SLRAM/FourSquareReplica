@@ -16,14 +16,14 @@ class ListsDetailView: UIView {
         label.textColor = .black
         label.font = UIFont(name: "AvenirNext-Bold", size: 25)
         label.textAlignment = .center
-        label.backgroundColor = .clear
+        label.backgroundColor = #colorLiteral(red: 1, green: 0.3412312865, blue: 0.3433039784, alpha: 1)
         return label
     }()
     
 
     lazy var favoritesTV: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = .white
+        tv.backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
         return tv
     }()
     
@@ -33,7 +33,7 @@ class ListsDetailView: UIView {
         self.favoritesTV.register(ListsDetailTableViewCell.self, forCellReuseIdentifier: "ListTVCell")
         titleLabelSetup()
         favoritesTVSetup()
-        backgroundColor = .white
+        backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +43,7 @@ class ListsDetailView: UIView {
     private func titleLabelSetup() {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 39).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
     }

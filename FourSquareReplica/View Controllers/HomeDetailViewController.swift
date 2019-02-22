@@ -41,7 +41,7 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
         })
         let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
 
-            self.navigationController?.pushViewController(FavoritesSearchVC(), animated: true)
+            self.navigationController?.pushViewController(ListsViewController(), animated: true)
         })
         
         let directionsAction = UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in

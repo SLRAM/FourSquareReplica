@@ -38,6 +38,9 @@
 		974FA0E0221BC0F6006381DD /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA0DF221BC0F6006381DD /* ImageAPI.swift */; };
 		974FA0E2221BC1B1006381DD /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA0E1221BC1B1006381DD /* ImageModel.swift */; };
 		974FA104221C975A006381DD /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FA103221C975A006381DD /* SearchBarView.swift */; };
+		9750E26B221DB8FB0017C25C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26A221DB8FB0017C25C /* HomeView.swift */; };
+		9750E26D221E0F070017C25C /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26C221E0F070017C25C /* LogoView.swift */; };
+		9750E26F221E1A440017C25C /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750E26E221E1A440017C25C /* LogoViewController.swift */; };
 		C6159609221C949D00459917 /* FavoritesSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159608221C949D00459917 /* FavoritesSetUp.swift */; };
 		C615960B221C978A00459917 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960A221C978A00459917 /* favoritesModel.swift */; };
 		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
@@ -86,6 +89,9 @@
 		974FA0DF221BC0F6006381DD /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		974FA0E1221BC1B1006381DD /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		974FA103221C975A006381DD /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9750E26A221DB8FB0017C25C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9750E26C221E0F070017C25C /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		9750E26E221E1A440017C25C /* LogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
 		C6159608221C949D00459917 /* FavoritesSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSetUp.swift; sourceTree = "<group>"; };
 		C615960A221C978A00459917 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
 		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
@@ -476,7 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 27KQ4G2M79;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,7 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FSUP887MQU;
+				DEVELOPMENT_TEAM = 27KQ4G2M79;
 				INFOPLIST_FILE = FourSquareReplica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

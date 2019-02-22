@@ -66,6 +66,8 @@ This section has:
    * add tips button that presents the user with a text field that saves with data persistence manager
    * add to list button that presents the user with a collection view of their saved lists
    * get directions button that leaves the app and opens apple Maps
+   
+   ![action sheet directions gif](https://github.com/SLRAM/FourSquareReplica/blob/dev-steph/Images/actionSheetDirections.gif)
 
 ## Lists
 

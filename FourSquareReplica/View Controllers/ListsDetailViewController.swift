@@ -30,9 +30,8 @@ extension ListsDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listDetailView.favoritesTV.dequeueReusableCell(withIdentifier: "ListTVCell", for: indexPath) as? ListsDetailTableViewCell else { return UITableViewCell()}
-        cell.backgroundColor = #colorLiteral(red: 0.005434548017, green: 0.2840109169, blue: 0.9170686007, alpha: 1)
-        cell.layer.borderWidth = 2
-        cell.layer.borderColor = UIColor.blue.cgColor
+        cell.backgroundColor = .clear
+
     
         return cell
     }

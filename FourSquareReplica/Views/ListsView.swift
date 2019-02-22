@@ -15,7 +15,7 @@ class ListsView: UIView {
         layout.itemSize = CGSize.init(width: 300, height: 340)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         let Collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        Collection.backgroundColor = .red
+        Collection.backgroundColor = .clear
         //layout.scrollDirection = .horizontal
         return Collection
     }()
@@ -23,13 +23,19 @@ class ListsView: UIView {
     lazy var createbutton: UIButton = {
         let button = UIButton()
         button.setTitle("Create a New Folder", for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = .gray
+        button.clipsToBounds = true
+        button.alpha = 0.7
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame:UIScreen.main.bounds)
-        self.backgroundColor = .green
+//        self.backgroundColor = .green
         constraints()
         folderCollectionView.register(ListsCollectionViewCell.self, forCellWithReuseIdentifier: "ListCell")
     }
@@ -39,6 +45,11 @@ class ListsView: UIView {
     }
     
     func constraints() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
+        
         addSubview(createbutton)
         createbutton.translatesAutoresizingMaskIntoConstraints = false
         createbutton.topAnchor.constraint(equalTo: topAnchor, constant: 190).isActive = true

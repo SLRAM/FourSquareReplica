@@ -16,7 +16,7 @@ class ListsDetailTableViewCell: UITableViewCell {
         label.text = "name of place"
         label.font = UIFont(name: "AvenirNext-Bold", size: 18)
         label.textAlignment = .left
-        label.backgroundColor = #colorLiteral(red: 1, green: 0.5315278172, blue: 0.8206806779, alpha: 1)
+//        label.backgroundColor = #colorLiteral(red: 1, green: 0.5315278172, blue: 0.8206806779, alpha: 1)
         return label
     }()
     
@@ -24,7 +24,7 @@ class ListsDetailTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
-        label.backgroundColor = #colorLiteral(red: 0.4260549545, green: 0.2493847907, blue: 0.7767984271, alpha: 1)
+//        label.backgroundColor = #colorLiteral(red: 0.4260549545, green: 0.2493847907, blue: 0.7767984271, alpha: 1)
         label.text = "street address\ncity and state"
         label.font = UIFont(name: "Avenir Next", size: 16)
         label.numberOfLines = 0

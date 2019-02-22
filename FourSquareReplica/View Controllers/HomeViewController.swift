@@ -309,8 +309,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         guard let currentLocation = locations.last else {return}
         updatedUserLocation = currentLocation.coordinate
         print("The user is in lat: \(currentLocation.coordinate.latitude) and long:\(currentLocation.coordinate.longitude)")
-        let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        homeView.mapView.setRegion(myCurrentRegion, animated: true)
+       // let myCurrentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+      //  homeView.mapView.setRegion(myCurrentRegion, animated: true)
 //        getVenues(userLocation: updatedUserLocation, near: "", query: "Taco")
     }
 }

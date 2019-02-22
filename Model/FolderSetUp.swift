@@ -9,9 +9,11 @@
 import Foundation
 
 struct folderSetUp: Codable {
+    
     let title: String
     let description: String
     let createdAt: String
+    
     public var dateFormattedString: String {
         let isoDateFormatter = ISO8601DateFormatter()
         var formattedDate = createdAt
@@ -32,4 +34,11 @@ struct folderSetUp: Codable {
         return formattedDate
     }
     
+    
+    
+}
+
+struct things: Codable {
+let placeName: String
+let address: String
 }

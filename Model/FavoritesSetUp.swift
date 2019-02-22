@@ -11,7 +11,5 @@ import Foundation
 struct FavoritesSetUp: Codable {
     let placeName: String
     let address: String
-    let favoritesImage: Data
-    
-    
+   // let favoritesImage: Data
 }

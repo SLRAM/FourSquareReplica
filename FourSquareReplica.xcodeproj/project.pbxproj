@@ -53,7 +53,6 @@
 		C615960B221C978A00459917 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960A221C978A00459917 /* favoritesModel.swift */; };
 		C615960D221C98EF00459917 /* FavoritesSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960C221C98EF00459917 /* FavoritesSearchVC.swift */; };
 		C615960F221C992100459917 /* FavoritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615960E221C992100459917 /* FavoritesSearchView.swift */; };
- 70d0f3fb148bec98fea063b0fa12a7ac9c6cc826
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +104,6 @@
 		C615960A221C978A00459917 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
 		C615960C221C98EF00459917 /* FavoritesSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchVC.swift; sourceTree = "<group>"; };
 		C615960E221C992100459917 /* FavoritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSearchView.swift; sourceTree = "<group>"; };
- 70d0f3fb148bec98fea063b0fa12a7ac9c6cc826
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

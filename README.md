@@ -10,19 +10,27 @@ Use FourSquares to search for places, activities, and events near you or desired
 
 # Detailed Outline
 
-App Should have (2) tabs
+App has (2) tabs:
+   * Home
+   * Lists
 
-#Home
+## Home
 
-This view should have:
+This view has:
 
-    * Button 
-    * ImageView
-    * SearchBar
+     
+    * ImageView of custom logo
+    * Buttons to search with preselected query terms
+    * Button to search with user location. If user location is disabled then searches with location term
     
-Buttons should list suggested searches.  Pressing the button will segue to new view with list of venues for that suggestion.  The view will also have (2) search bars, one for entering a different desired place, the other for manual location change.  You also have the option to sort the locations by distance to you.  There is also a map in the navigation bar to help in navigating to location.  Selecting the location cell will open up a view with that venue's information as well as option to "add to list" or "add a tip" or "get directions"
+    
+Buttons should list suggested searches.  Pressing the button will segue to new view with list of venues for that suggestion. 
 
-#Lists
+
+
+The view will also have (2) search bars, one for entering a different desired place, the other for manual location change.  You also have the option to sort the locations by distance to you.  There is also a map in the navigation bar to help in navigating to location.  Selecting the location cell will open up a view with that venue's information as well as option to "add to list" or "add a tip" or "get directions"
+
+## Lists
 
 This view should have: 
 
@@ -33,6 +41,10 @@ Collection View will list folder names created by user.  Selecting the folder ce
     
 
 # Endpoints 
+
+https://api.foursquare.com/v2/venues/search
+
+https://api.foursquare.com/v2/venues/\(venueID)/photos
 
     
 # Authors and Acknowledgments

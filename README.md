@@ -24,11 +24,29 @@ This view has:
     * Button to search with user location. If user location is disabled then searches with location term
     
     
-Buttons should list suggested searches.  Pressing the button will segue to new view with list of venues for that suggestion. 
+Buttons should list suggested searches.  Pressing the button will segue to new view with list of venues for that suggestion.
+
+### Home Detail
+
+This view has:
+
+     
+    * Location image
+    * Location information labels
+    * Button that presents an action sheet
 
 
 
 The view will also have (2) search bars, one for entering a different desired place, the other for manual location change.  You also have the option to sort the locations by distance to you.  There is also a map in the navigation bar to help in navigating to location.  Selecting the location cell will open up a view with that venue's information as well as option to "add to list" or "add a tip" or "get directions"
+
+#### Action Sheet
+
+This view has:
+
+     
+    * add tips button that presents the user with a text field to save their tip
+    * add to list button that presents the user with a collection view of their saved lists
+    * get directions button that leaves the app and opens apple Maps
 
 ## Lists
 

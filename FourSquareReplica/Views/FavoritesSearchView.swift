@@ -11,6 +11,13 @@ import UIKit
 class FavoritesSearchView: UIView {
 
     //collection view, inside collection view cell is a button for adding to list detail view controller
+    lazy var createbutton: UIButton = {
+        let button = UIButton()
+        button.setTitle("add place to new Folder", for: .normal)
+        button.contentMode = .scaleAspectFill
+        button.backgroundColor = .green
+        return button
+    }()
     
     lazy var addToListsCV:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,6 +32,7 @@ class FavoritesSearchView: UIView {
         backgroundColor = .white
         addToListsCV.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
         addToListsSetUp()
+        addResturantToFolder()
         
     }
     
@@ -36,9 +44,19 @@ class FavoritesSearchView: UIView {
     addSubview(addToListsCV)
     addToListsCV.translatesAutoresizingMaskIntoConstraints = false
     addToListsCV.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-    addToListsCV.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95).isActive = true
+    addToListsCV.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
     addToListsCV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     addToListsCV.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     addToListsCV.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    func addResturantToFolder(){
+        addSubview(createbutton)
+        createbutton.translatesAutoresizingMaskIntoConstraints = false
+        createbutton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        createbutton.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        createbutton.bottomAnchor.constraint(equalTo: addToListsCV.topAnchor, constant: 0).isActive = true
+//        createbutton.centerYAnchor.constraint(equalTo: addToListsCV.centerYAnchor).isActive = true
+        
     }
 }

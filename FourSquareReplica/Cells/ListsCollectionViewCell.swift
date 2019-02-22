@@ -21,7 +21,7 @@ class ListsCollectionViewCell: UICollectionViewCell {
     lazy var blurry: UIVisualEffectView = {
         var blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         var blurView = UIVisualEffectView(effect: blurEffect)
-         blurView.backgroundColor = .blue
+         blurView.backgroundColor = #colorLiteral(red: 0, green: 0.5502179265, blue: 1, alpha: 0.3663188052)
         return blurView
     }()
     

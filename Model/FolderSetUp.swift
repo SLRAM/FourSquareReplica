@@ -9,10 +9,11 @@
 import Foundation
 
 struct folderSetUp: Codable {
+    
     let title: String
     let description: String
     let createdAt: String
-    let arrayInfo: [things]
+    
     public var dateFormattedString: String {
         let isoDateFormatter = ISO8601DateFormatter()
         var formattedDate = createdAt
@@ -33,10 +34,11 @@ struct folderSetUp: Codable {
         return formattedDate
     }
     
+    
+    
 }
 
 struct things: Codable {
-    let imageData: Data
-    let address: String
-    let name:String 
+let placeName: String
+let address: String
 }

@@ -31,13 +31,13 @@ class FoldercreationView: UIView {
     lazy var TextFields: UITextField = {
         let textField = UITextField()
         textField.placeholder = "FolderName"
-        textField.backgroundColor = .blue
+        textField.backgroundColor = .red
         return textField
     }()
     lazy var TextFields1: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Description"
-        textField.backgroundColor = .red
+        textField.backgroundColor = .gray
         return textField
     }()
     
@@ -70,16 +70,15 @@ class FoldercreationView: UIView {
         alertView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         TextFields.translatesAutoresizingMaskIntoConstraints = false
-        TextFields.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80).isActive = true
+        TextFields.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100).isActive = true
         TextFields.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 11).isActive = true
         TextFields.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -11).isActive = true
         
         TextFields1.translatesAutoresizingMaskIntoConstraints = false
-        //TextFields1.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         TextFields1.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 11).isActive = true
         TextFields1.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -11).isActive = true
-       
-       // TextFields1.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+       TextFields1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40).isActive = true
+        //TextFields1.topAnchor.constraint(equalTo: TextFields.bottomAnchor).isActive = true
 
         
         buttonforAlyson.translatesAutoresizingMaskIntoConstraints = false

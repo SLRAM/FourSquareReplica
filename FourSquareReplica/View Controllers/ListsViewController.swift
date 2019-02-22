@@ -9,12 +9,9 @@
 import UIKit
 
 class ListsViewController: UIViewController {
-    let animationsView = ListsView()
     let listsView = ListsView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        listsView.folderCollectionView.reloadData()
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,22 +22,29 @@ class ListsViewController: UIViewController {
         listsView.createbutton.addTarget(self, action: #selector(createFolderCells), for: .touchUpInside)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        listsView.folderCollectionView.reloadData()
+        self.listsView.createbutton.alpha = 1
+    }
+
+    
+    
     @objc func createFolderCells() {
-        view.addSubview(animationsView)
-        UIView.animate(withDuration: 0.6, delay: 0, options: [.curveEaseInOut], animations: {
-            self.animationsView.createbutton.transform = CGAffineTransform(rotationAngle: 40.055)
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            self.listsView.createbutton.transform = CGAffineTransform(rotationAngle: 40.055)
             let vc = FolderCreationViewController()
             vc.modalTransitionStyle = .flipHorizontal
-            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalPresentationStyle = .popover
             self.present(vc, animated: true, completion: nil)
             self.perform(#selector(self.something), with: self, afterDelay: 0.7)
         })
-        //listsView.createbutton.isHidden = true
-        //self.animationsView.createbutton.isHidden = true
     }
     @objc func something(){
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.animationsView.createbutton.alpha = 0.0
+            self.listsView.createbutton.alpha = 0.0
+            self.listsView.folderCollectionView.reloadData()
+            self.listsView.createbutton.transform = CGAffineTransform(rotationAngle:0)
         })
     }
     

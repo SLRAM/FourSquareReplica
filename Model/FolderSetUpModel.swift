@@ -12,6 +12,7 @@ import Foundation
 final class FolderModel {
     private static let fileName = "FolderCell.plist"
     private static var items = [folderSetUp]()
+    private static var item = [things]()
     
     static func getItems() -> [folderSetUp] {
         let path = DataPersistenceManager.filepathToDocumentDirectory(filename: fileName).path
@@ -34,6 +35,10 @@ final class FolderModel {
     static func addItem(item: folderSetUp) {
         //Append to array of items
         items.append(item)
+        save()
+    }
+    static func addthings(itemy: things){
+        item.append(itemy)
         save()
     }
     

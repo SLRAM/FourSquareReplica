@@ -10,14 +10,14 @@ import Foundation
 
 final class FavoritesModel {
     private static let favoriteName = "FavoritesCell.plist"
-    private static var items = [FavoritesSetUp]()
+    private static var itemy = [FavoritesSetUp]()
     
     static func getItems() -> [FavoritesSetUp] {
         let path = DataPersistenceManager.filepathToDocumentDirectory(filename: favoriteName).path
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    items = try PropertyListDecoder().decode([FavoritesSetUp].self, from: data)
+                    itemy = try PropertyListDecoder().decode([FavoritesSetUp].self, from: data)
                 } catch {
                     print("Property list decoding error: \(error)")
                 }
@@ -27,24 +27,24 @@ final class FavoritesModel {
         } else {
             print("\(favoriteName) doesn't exist")
         }
-        items = items.sorted{ $0.placeName > $1.placeName }
-        return items
+        itemy = itemy.sorted{ $0.placeName > $1.placeName }
+        return itemy
     }
     static func addItem(item: FavoritesSetUp) {
         //Append to array of items
-        items.append(item)
+        itemy.append(item)
         save()
     }
     
     static func delete(index: Int) {
-        items.remove(at: index)
+        itemy.remove(at: index)
         save()
     }
     static func save() {
         // path
         let path = DataPersistenceManager.filepathToDocumentDirectory(filename: favoriteName)
         do {
-            let data = try PropertyListEncoder().encode(items)
+            let data = try PropertyListEncoder().encode(itemy)
             try data.write(to: path, options: Data.WritingOptions.atomic)
         } catch {
             print("Property list encoding error: \(error)")

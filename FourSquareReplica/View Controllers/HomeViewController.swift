@@ -110,6 +110,7 @@ class HomeViewController: UIViewController {
     func mapListButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Map", style: .plain, target: self, action: #selector(toggle))
     }
+    
     @objc func toggle() {
         print("pressed toggle")
         if statusRawValue != 4 && (homeView.locationTextField.text?.isEmpty)! {

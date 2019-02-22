@@ -9,12 +9,9 @@
 import UIKit
 
 class ListsViewController: UIViewController {
-
     let listsView = ListsView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        listsView.folderCollectionView.reloadData()
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +19,33 @@ class ListsViewController: UIViewController {
         self.view.addSubview(listsView)
         listsView.folderCollectionView.delegate = self
         listsView.folderCollectionView.dataSource = self
-        listsView.createbutton.addTarget(self, action: #selector(CreateFolderCells), for: .touchUpInside)
+        listsView.createbutton.addTarget(self, action: #selector(createFolderCells), for: .touchUpInside)
     }
 
-    @objc func CreateFolderCells() {
-          present(FolderCreationViewController(), animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        listsView.folderCollectionView.reloadData()
+        self.listsView.createbutton.alpha = 1
+    }
+
+    
+    
+    @objc func createFolderCells() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            self.listsView.createbutton.transform = CGAffineTransform(rotationAngle: 40.055)
+            let vc = FolderCreationViewController()
+            vc.modalTransitionStyle = .flipHorizontal
+            vc.modalPresentationStyle = .popover
+            self.present(vc, animated: true, completion: nil)
+            self.perform(#selector(self.something), with: self, afterDelay: 0.7)
+        })
+    }
+    @objc func something(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.listsView.createbutton.alpha = 0.0
+            self.listsView.folderCollectionView.reloadData()
+            self.listsView.createbutton.transform = CGAffineTransform(rotationAngle:0)
+        })
     }
     
 }

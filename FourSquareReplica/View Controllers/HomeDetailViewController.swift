@@ -48,6 +48,11 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
             
         })
         let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
+            let storeStuff = FavoritesSetUp.init(placeName: (self.venue?.name)!, address: (self.venue?.location.address)!)
+            FavoritesModel.addItem(item: storeStuff)
+            self.navigationController?.pushViewController(FavoritesSearchVC(), animated: true)
+            
+            
 
             self.navigationController?.pushViewController(ListsViewController(), animated: true)
         })

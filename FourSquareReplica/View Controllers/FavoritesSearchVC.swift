@@ -32,6 +32,12 @@ extension FavoritesSearchVC: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.favoritePlace.text = folderInfo.title
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let storeDetail = HomeDetailView()
+//        let storeStuff = FavoritesSetUp.init(placeName: storeDetail.nameLabel.text!
+//            , address: storeDetail.addressLabel.text!)
+       // FavoritesModel.addItem(item: storeStuff)
+        navigationController?.pushViewController(ListsDetailViewController(), animated: true)
+    }
     
 }

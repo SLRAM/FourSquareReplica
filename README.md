@@ -56,6 +56,8 @@ This view has:
    * Location image
    * Location information labels
    * Button that presents an action sheet
+   
+   ![home detail gif](https://github.com/SLRAM/FourSquareReplica/blob/dev-steph/Images/actionSheet.gif)
 
 The view will also have (2) search bars, one for entering a different desired place, the other for manual location change.  You also have the option to sort the locations by distance to you.  There is also a map in the navigation bar to help in navigating to location.  Selecting the location cell will open up a view with that venue's information as well as option to "add to list" or "add a tip" or "get directions"
 

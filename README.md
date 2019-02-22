@@ -93,8 +93,11 @@ https://api.foursquare.com/v2/venues/\(venueID)/photos
 # Authors and Acknowledgments
 
 Stephanie Ramirez - Team Lead
+
 Ibraheem Rawlinson - Project Lead
+
 Antonio Flores - Tech Lead
+
 Alyson Abril - Design Lead
 
 

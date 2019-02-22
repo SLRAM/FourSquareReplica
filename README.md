@@ -92,13 +92,13 @@ https://api.foursquare.com/v2/venues/\(venueID)/photos
     
 # Authors and Acknowledgments
 
-Stephanie Ramirez - Team Lead
+[Stephanie Ramirez](https://github.com/SLRAM) - Team Lead
 
-Ibraheem Rawlinson - Project Lead
+[Ibraheem Rawlinson](https://github.com/Ibraheemraw) - Project Lead
 
-Antonio Flores - Tech Lead
+[Antonio Flores](https://github.com/AntonioFlores1) - Tech Lead
 
-Alyson Abril - Design Lead
+[Alyson Abril](https://github.com/alysonabril) - Design Lead
 
 
 # License 

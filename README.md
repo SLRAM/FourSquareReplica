@@ -21,9 +21,9 @@ This view has:
    * Image view of custom logo
    * Buttons to search with preselected query terms
    * Button to search with user location. If user location is disabled then searches with location term
-    
-    
-Buttons should list suggested searches.  Pressing the button will segue to new view with list of venues for that suggestion.
+   
+   ![deny location gif](https://github.com/SLRAM/FourSquareReplica/blob/dev-steph/Images/denyLocations.gif)
+
 
 ### Home Search View
 This view has:

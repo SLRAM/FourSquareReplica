@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
                     self.homeView.reloadInputViews()
                     self.homeView.myTableView.reloadData()
                     self.homeView.mapView.reloadInputViews()
+                    self.setupAnnotations()
                     dump(venues)
                 }
             }
@@ -268,6 +269,7 @@ extension HomeViewController: UITextFieldDelegate {
         }
         
         textField.resignFirstResponder()
+        homeView.mapView.reloadInputViews()
         return true
     }
 }

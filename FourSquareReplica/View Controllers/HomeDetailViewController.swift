@@ -48,10 +48,8 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
             let TVC = TipViewController()
             TipViewController().title = self.venue?.name
             TVC.tipDetail = self.venue
+            //TVC.modalPresentationStyle = .overCurrentContext
             self.navigationController?.pushViewController(TVC, animated: true)
-            
-            
-            
         })
         let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
             

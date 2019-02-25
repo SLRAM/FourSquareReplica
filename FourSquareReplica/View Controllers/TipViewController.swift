@@ -43,6 +43,7 @@ class TipViewController: UIViewController {
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("Cancel")
+            TipViewController().dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -63,6 +64,7 @@ class TipViewController: UIViewController {
        // dismiss(animated: true) {
 //            self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
         //}
+        
     }
     
     func textViewDetails(){

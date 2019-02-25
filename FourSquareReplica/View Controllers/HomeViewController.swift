@@ -131,7 +131,7 @@ class HomeViewController: UIViewController {
             count += 1
             
         }
-        let myCurrentRegion = MKCoordinateRegion(center: venues[5].location.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
+        let myCurrentRegion = MKCoordinateRegion(center: venues[0].location.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
         homeView.mapView.setRegion(myCurrentRegion, animated: true)
 
     }

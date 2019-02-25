@@ -10,9 +10,7 @@ import UIKit
 
 class ListsViewController: UIViewController {
     let listsView = ListsView()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .yellow
@@ -28,20 +26,19 @@ class ListsViewController: UIViewController {
         self.listsView.createbutton.alpha = 1
     }
 
-    
-    
     @objc func createFolderCells() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
             self.listsView.createbutton.transform = CGAffineTransform(rotationAngle: 40.055)
-            let vc = FolderCreationViewController()
-            vc.modalTransitionStyle = .flipHorizontal
-            vc.modalPresentationStyle = .popover
-            self.present(vc, animated: true, completion: nil)
-            self.perform(#selector(self.something), with: self, afterDelay: 0.7)
+            self.perform(#selector(self.something), with: self, afterDelay: 0.3)
         })
     }
+    
     @objc func something(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
+            let vc = FolderCreationViewController()
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .currentContext
+            self.navigationController?.present(vc, animated: true, completion: nil)
             self.listsView.createbutton.alpha = 0.0
             self.listsView.folderCollectionView.reloadData()
             self.listsView.createbutton.transform = CGAffineTransform(rotationAngle:0)

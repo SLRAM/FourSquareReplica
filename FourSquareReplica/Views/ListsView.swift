@@ -26,12 +26,12 @@ class ListsView: UIView {
         button.contentMode = .scaleAspectFill
         //button.backgroundColor = .red
         button.setTitle("Create a New Folder", for: .normal)
-        button.backgroundColor = .gray
-        button.clipsToBounds = true
-        button.alpha = 0.7
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.gray.cgColor
+        //button.backgroundColor = .gray
+//        button.clipsToBounds = true
+//        button.alpha = 0.7
+//        button.layer.cornerRadius = 10
+//        button.layer.borderWidth = 2
+        //button.layer.borderColor = UIColor.gray.cgColor
         button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
         return button
     }()
@@ -48,10 +48,10 @@ class ListsView: UIView {
     }
     
     func constraints() {
-        let gradient = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
-        self.layer.addSublayer(gradient)
+//        let gradient = CAGradientLayer()
+//        gradient.frame = self.bounds
+//        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+//        self.layer.addSublayer(gradient)
         
         addSubview(createbutton)
         createbutton.translatesAutoresizingMaskIntoConstraints = false

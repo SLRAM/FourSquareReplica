@@ -12,6 +12,7 @@ class FolderCreationViewController: UIViewController {
     
     let folderCreation = FoldercreationView()
     let listsView = ListsView()
+    var listInfo = [folderSetUp]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +90,18 @@ class FolderCreationViewController: UIViewController {
         if self.folderCreation.TextFields.text == "" || self.folderCreation.TextFields.text == " " {
                 self.createAlertForFolderIfEmpty(title:"Please enter a title", message: "Can't create a folder without a title")
         } else {
-            let folderDetails = folderSetUp.init(title: self.folderCreation.TextFields.text!, description: self.folderCreation.TextFields1.text!, createdAt: timestamp)
-            FolderModel.addItem(item: folderDetails) 
+        let thing = ListsDetailViewController()
+        let folderDetails = folderSetUp.init(title: self.folderCreation.TextFields.text!, description: self.folderCreation.TextFields1.text!, createdAt: timestamp, details: [FavoritesSetUp]())
+        FolderModel.add(item: folderDetails)
+        self.listInfo = FolderModel.loadSave()
+//            folderSetUp.init(title: self.folderCreation.TextFields.text!, description: self.folderCreation.TextFields1.text!, createdAt: timestamp)
+            //FolderModel.addItem(item: folderDetails)
+//            self.navigationController
+//            self.present(ListsDetailViewController(), animated: true, completion: nil)
             dismiss(animated: true, completion: nil)
+           // self.navigationController?.pushViewController(ListsDetailViewController(), animated: true)
+//            self.navigationController?.present(ListsDetailViewController(), animated: true, completion: nil)
+            
             }
     }
     

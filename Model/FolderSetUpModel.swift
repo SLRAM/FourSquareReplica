@@ -12,9 +12,8 @@ import Foundation
 final class FolderModel {
     private static let fileName = "FolderCell.plist"
     private static var items = [folderSetUp]()
-    private static var item = [things]()
     
-    static func getItems() -> [folderSetUp] {
+    static func getItems() -> [folderSetUp]{
         let path = DataPersistenceManager.filepathToDocumentDirectory(filename: fileName).path
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
@@ -32,21 +31,22 @@ final class FolderModel {
         items = items.sorted{$0.date > $1.date}
         return items
     }
-    static func addItem(item: folderSetUp) {
-        //Append to array of items
-        items.append(item)
+    
+    static func add(item:folderSetUp) {
+    items.append(item)
         save()
     }
-    static func addthings(itemy: things){
-        item.append(itemy)
+    static func addItem(type: inout folderSetUp, saveOtherInfo: FavoritesSetUp, at index:Int){
+        items[index].details.append(saveOtherInfo)
         save()
     }
     
-    static func delete(index: Int) {
+    static func delete(index: Int){
         items.remove(at: index)
         save()
     }
-    static func save() {
+    
+    static func save(){
         // path
         let path = DataPersistenceManager.filepathToDocumentDirectory(filename: fileName)
         do {
@@ -56,5 +56,22 @@ final class FolderModel {
             print("Property list encoding error: \(error)")
         }
     }
-    
+    static func loadSave()->[folderSetUp]{
+        let path = DataPersistenceManager.filepathToDocumentDirectory(filename: fileName).path
+        if FileManager.default.fileExists(atPath: path){
+            if let data = FileManager.default.contents(atPath: path){
+                do {
+                    items = try PropertyListDecoder().decode([folderSetUp].self, from: data)
+                } catch {
+                    print(error)
+                }
+            } else {
+                print("LoadEntry func data area is nil")
+            }
+        }
+        else {
+            print("\(fileName) does not exsist")
+        }
+        return items
+    }
 }

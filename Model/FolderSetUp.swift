@@ -13,7 +13,7 @@ struct folderSetUp: Codable {
     let title: String
     let description: String
     let createdAt: String
-    
+    var details: [FavoritesSetUp]
     public var dateFormattedString: String {
         let isoDateFormatter = ISO8601DateFormatter()
         var formattedDate = createdAt
@@ -38,7 +38,3 @@ struct folderSetUp: Codable {
     
 }
 
-struct things: Codable {
-let placeName: String
-let address: String
-}

@@ -13,9 +13,9 @@ class FavoritesSearchView: UIView {
     //collection view, inside collection view cell is a button for adding to list detail view controller
     lazy var createbutton: UIButton = {
         let button = UIButton()
-        button.setTitle("add place to new Folder", for: .normal)
+        button.setTitle("+ add place to a New List", for: .normal)
         button.contentMode = .scaleAspectFill
-        button.backgroundColor = .green
+        button.backgroundColor = .gray
         return button
     }()
     
@@ -27,13 +27,14 @@ class FavoritesSearchView: UIView {
         //Collection.backgroundColor = #colorLiteral(red: 1, green: 0.8055025935, blue: 0.9865790009, alpha: 1)
         return Collection
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         backgroundColor = .white
         addToListsCV.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavoriteCell")
         addToListsSetUp()
         addResturantToFolder()
-        
+        self.backgroundColor = #colorLiteral(red: 0, green: 0.6828516126, blue: 1, alpha: 0.09922968062)
     }
     
     required init?(coder aDecoder: NSCoder) {

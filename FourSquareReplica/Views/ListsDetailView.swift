@@ -20,6 +20,7 @@ class ListsDetailView: UIView {
         return label
     }()
     
+    
 
     lazy var favoritesTV: UITableView = {
         let tv = UITableView()
@@ -34,6 +35,7 @@ class ListsDetailView: UIView {
         titleLabelSetup()
         favoritesTVSetup()
 //        backgroundColor = #colorLiteral(red: 0.2660466433, green: 0.2644712925, blue: 0.2672616839, alpha: 1)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -20,8 +20,13 @@ class ListsDetailViewController: UIViewController {
         listDetailView.favoritesTV.dataSource = self
         listDetailView.favoritesTV.delegate = self
         listDetailView.titleLabel.text = FolderModel.getItems().first?.title
+        //navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Back Button", style: UIBarButtonItem.Style.plain, target: self, action: #selector(returnBaclToFolders))
     }
  
+//    @objc func returnBaclToFolders(){
+//    //navigationController?.pushViewController(ListsViewController(), animated: true)
+//       // dismiss(animated: true, completion: nil)
+//    }
 }
 
 extension ListsDetailViewController: UITableViewDelegate, UITableViewDataSource {

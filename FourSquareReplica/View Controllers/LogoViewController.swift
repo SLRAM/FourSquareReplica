@@ -43,8 +43,16 @@ extension LogoViewController: LogoViewDelegate {
     }
 }
 extension LogoViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    print("user changed the authorization logo")
+//        let go = locationManager.startUpdatingLocation
+        print("current location on logo \(locationManager.location)")
+        guard let updatedLocation = locationManager.location?.coordinate else {return}
+        userLocation = updatedLocation
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("user has changed locations")
+        print("user has changed locations logo")
         guard let currentLocation = locations.last else {return}
         userLocation = currentLocation.coordinate
     }

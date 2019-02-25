@@ -191,6 +191,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = homeView.myTableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell", for: indexPath) as? HomeListTableViewCell else {return UITableViewCell()}
         let venueToSet = venues[indexPath.row]
+        cell.selectionStyle = .none
         cell.locationName.text = "\(indexPath.row + 1). \(venueToSet.name)"
         cell.locationCategory.text = venueToSet.categories.first?.name
         let venueDistance = venueToSet.location.distance?.description ?? " "

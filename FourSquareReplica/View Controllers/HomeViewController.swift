@@ -27,6 +27,9 @@ class HomeViewController: UIViewController {
     var statusRawValue = Int32()
     var userLocation : CLLocationCoordinate2D?
     var updatedUserLocation = CLLocationCoordinate2D()
+    class MyAnnotation: MKPointAnnotation {
+        var tag: Int!
+    }
     
     private func getVenues(userLocation: CLLocationCoordinate2D, near: String, query: String) {
         FourSquareAPI.searchFourSquare(userLocation: userLocation, near: near, query: query) { (appError, venues) in
@@ -70,6 +73,7 @@ class HomeViewController: UIViewController {
        // setupAnnotations()
     }
     func setupLocation() {
+        
         guard let userLocation = userLocation,
             let query = query else {return}
         switch userLocation.latitude {
@@ -103,18 +107,28 @@ class HomeViewController: UIViewController {
 //        }
     }
     func setupAnnotations(){
+        
+        
+        var count = 0
+        
         let allAnnotations = self.homeView.mapView.annotations
         self.homeView.mapView.removeAnnotations(allAnnotations)
         for venue in venues {
+            
+            print("venue number: \(count)")
             let regionRadius: CLLocationDistance = 9000
             let coordinate = CLLocationCoordinate2D.init(latitude: venue.location.lat!, longitude: venue.location.lng!)
             let coordinateRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-            let annotation = MKPointAnnotation()
+//            let annotation = MKPointAnnotation()
+            let annotation = MyAnnotation()
             annotation.coordinate = coordinate
             annotation.title = venue.name
             annotation.subtitle = venue.location.address
+            annotation.tag = count
+            
             homeView.mapView.setRegion(coordinateRegion, animated: true)
             homeView.mapView.addAnnotation(annotation)
+            count += 1
             
         }
         let myCurrentRegion = MKCoordinateRegion(center: venues[0].location.coordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
@@ -240,8 +254,19 @@ extension HomeViewController: MKMapViewDelegate{
         return annotationView
     }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let myViewAnnotation = view.annotation as? MyAnnotation else {
+            return
+        }
+        
         let destinationVC = HomeDetailViewController()
-     navigationController?.pushViewController(destinationVC, animated: true)
+        
+        let venue = venues[myViewAnnotation.tag]
+        destinationVC.venue = venue
+//        destinationVC.homeDetailView.detailImageView.image = selectedCell.cellImage.image
+        
+        
+        
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
 

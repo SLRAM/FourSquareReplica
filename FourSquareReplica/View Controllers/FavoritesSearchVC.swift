@@ -11,12 +11,36 @@ import UIKit
 class FavoritesSearchVC: UIViewController {
 
     var favoritesSearch = FavoritesSearchView()
+    var listViewController = ListsViewController()
+    var saveInfoToPlist: Venues!
+    var folderInfo = [folderSetUp]()
+    var venueInfo: FavoritesSetUp!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(favoritesSearch)
         favoritesSearch.addToListsCV.delegate = self
         favoritesSearch.addToListsCV.dataSource = self
+        favoritesSearch.createbutton.addTarget(self, action: #selector(addToNewFolder), for: .touchUpInside)
+        //view.backgroundColor =
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        favoritesSearch.addToListsCV.reloadData()
+    }
+    
+    public convenience init(folder:[folderSetUp],venue: FavoritesSetUp) {
+        self.init()
+        self.folderInfo = folder
+        self.venueInfo = venue
+        self.view.backgroundColor = .clear
+    }
+    @objc func addToNewFolder() {
+        let vc = FolderCreationViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .popover
+        self.present(vc, animated: true, completion: nil) 
     }
     
 }
@@ -33,12 +57,16 @@ extension FavoritesSearchVC: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let storeDetail = HomeDetailView()
-//        let storeStuff = FavoritesSetUp.init(placeName: storeDetail.nameLabel.text!
-//            , address: storeDetail.addressLabel.text!)
-       // FavoritesModel.addItem(item: storeStuff)
-       
-       navigationController?.pushViewController(ListsDetailViewController(), animated: true)
+//        var info = folderInfo[indexPath.row]
+//        FolderModel.addItem(type: &info, saveOtherInfo: venueInfo, at: indexPath.row)
+        guard let name = self.saveInfoToPlist?.name,
+            let address = self.saveInfoToPlist?.location.address,
+            let secondPartaddress = self.saveInfoToPlist.location.city
+            else {return}
+    navigationController?.pushViewController(ListsDetailViewController(), animated: true)
+        let storeStuff = FavoritesSetUp.init(placeName: name
+            , address: "\(address), \(secondPartaddress)")
+        FavoritesModel.addItem(item: storeStuff)
     }
     
 }

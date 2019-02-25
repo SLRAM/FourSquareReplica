@@ -45,15 +45,20 @@ extension HomeDetailViewController: HomeDetailViewDelegate {
     func addToLists() {
         let optionMenu = UIAlertController(title: nil, message: "Options:", preferredStyle: .actionSheet)
         let  tipAction = UIAlertAction(title: "Add A Tip", style: .default, handler: { (action) -> Void in
-            
+            let TVC = TipViewController()
+            TipViewController().title = self.venue?.name
+            TVC.tipDetail = self.venue
+            //TVC.modalPresentationStyle = .overCurrentContext
+            self.navigationController?.pushViewController(TVC, animated: true)
         })
         let  addAction = UIAlertAction(title: "Add To Lists", style: .default, handler: { (action) -> Void in
-            self.navigationController?.pushViewController(FavoritesSearchVC(), animated: true)
-            guard let name = self.venue?.name,
-                let address = self.venue?.location.address else {return}
-            let storeStuff = FavoritesSetUp.init(placeName: name, address: address)
-            FavoritesModel.addItem(item: storeStuff)
             
+            let Fsc = FavoritesSearchVC()
+            Fsc.modalTransitionStyle = .coverVertical
+            Fsc.modalPresentationStyle = .currentContext
+            Fsc.saveInfoToPlist = self.venue
+            self.navigationController?.pushViewController(Fsc, animated: true)
+            //Tap gesture to cancel 
         })
         
         let directionsAction = UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in

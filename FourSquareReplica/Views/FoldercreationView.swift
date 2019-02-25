@@ -31,19 +31,21 @@ class FoldercreationView: UIView {
     lazy var TextFields: UITextField = {
         let textField = UITextField()
         textField.placeholder = "FolderName"
-        textField.backgroundColor = .red
+        textField.backgroundColor = .white
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         return textField
     }()
     lazy var TextFields1: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Description"
-        textField.backgroundColor = .gray
+        textField.backgroundColor = .white
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         return textField
     }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
-        self.backgroundColor = #colorLiteral(red: 0.1549701691, green: 0.1442655027, blue: 0.9850149751, alpha: 0.4210206877)
+        self.backgroundColor = #colorLiteral(red: 0, green: 0.4128293395, blue: 1, alpha: 0.2389485917)
         //self.backgroundColor = .blue
         //self.isOpaque = true
         // self.clearsContextBeforeDrawing = true
@@ -58,6 +60,10 @@ class FoldercreationView: UIView {
     
     
     func SetUp(){
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.magenta.cgColor,UIColor.red.cgColor,UIColor.purple.cgColor,UIColor.blue.cgColor]
+        self.layer.addSublayer(gradient)
         addSubview(alertView)
         addSubview(TextFields)
         addSubview(TextFields1)

@@ -19,6 +19,7 @@ class HomeDetailView: UIView {
         iv.contentMode = .scaleAspectFit
         return iv
     }()
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black

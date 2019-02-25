@@ -294,6 +294,7 @@ extension HomeViewController: UITextFieldDelegate {
         }
         
         textField.resignFirstResponder()
+        homeView.mapView.reloadInputViews()
         return true
     }
 }
